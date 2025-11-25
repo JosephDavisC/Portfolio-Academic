@@ -33,11 +33,5 @@ All notable changes to this project will be documented in this file.
 - EmailJS for contact form
 - Custom scroll components (ScrollProgress, ScrollToTop, ScrollUpButton)
 
-### Removed
-- Blog section and article pages
-- Certifications section
-- Milestones section
-- Tennis & Coffee lifestyle section
-- Personal projects (IShowStream, JAM AI, etc.)
 
 [1.0.0]: https://github.com/JosephDavisC/portfolio-academic/releases/tag/v1.0.0
