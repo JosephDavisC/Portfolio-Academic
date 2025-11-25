@@ -1,0 +1,12 @@
+# Enable rewrite engine
+RewriteEngine On
+RewriteBase /
+
+# Serve static blog pages ONLY for social media crawlers
+RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot) [NC]
+RewriteRule ^blog/bc-hacks-2024/?$ /blog/bc-hacks-2024/index.html [L]
+
+# For all other requests (real users), serve the React SPA
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

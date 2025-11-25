@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.vercel/
+.netlify/
+coverage/
+.DS_Store
+.env
+.env.*
+*.local
+.env*
+.zip
+
+# FTP deployment credentials
+scripts/ftp-config.json
