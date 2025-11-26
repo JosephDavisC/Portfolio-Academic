@@ -177,7 +177,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#home" onClick={handleNavClick("#home")} className="flex items-center">
           <img
-            src="/Logo_Joseph.PNG"
+            src="/Joseph-Academic-Logo.png"
             alt="Logo"
             className="h-11 w-11 rounded-full object-cover shadow-md hover:scale-105 transition-transform"
           />

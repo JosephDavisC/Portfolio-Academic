@@ -134,8 +134,6 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover/profile:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30 pointer-events-none group-hover/profile:pointer-events-auto">
                   <motion.a
                     href="https://joechamdani.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 backdrop-blur-md border border-white/20 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-purple-500/50 flex items-center gap-2 opacity-0 group-hover/profile:opacity-100"
                     initial={{ y: 8 }}
                     whileHover={{ scale: 1.05 }}
