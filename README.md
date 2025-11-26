@@ -1,5 +1,5 @@
 <a href="https://uw.joechamdani.com" target="_blank">
-  <img src="https://joechamdani.com/Logo_Joseph.PNG" alt="Joseph Davis Chamdani Logo" width="120" align="left"/>
+  <img src="https://uw.joechamdani.com/Joseph-Academic-Logo.png" alt="Joseph Davis Chamdani Logo" width="120" align="left"/>
 </a>
 
 # Joseph Davis Chamdani – Academic Portfolio
