@@ -2,15 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-const HEADER_OFFSET = 88; // match your fixed header height
+const HEADER_OFFSET = 88;
 
 type NavItem = { name: string; href: `#${string}`; short?: string };
 
 const links: NavItem[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Coursework", href: "#coursework" },
   { name: "Academic Projects", href: "#portfolio", short: "Projects" },
+  { name: "Coursework", href: "#coursework" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -35,7 +35,6 @@ function useActiveId(ids: string[], headerOffset = 88) {
           if (visible[0]?.target?.id) {
             setActiveId(visible[0].target.id);
           } else {
-            // Fallback: last section whose top is above the header line
             const y = window.scrollY + headerOffset + 8;
             let current = ids[0];
             for (const id of ids) {
@@ -66,25 +65,20 @@ function useActiveId(ids: string[], headerOffset = 88) {
       }
     };
 
-    // Initial pass for any IDs already in the DOM
     ids.forEach(observeIfPresent);
 
-    // Re-observe after images load (layout shifts can detach internals)
     const imgs = Array.from(document.images);
     const onImgLoad = () => ids.forEach(observeIfPresent);
     imgs.forEach((img) => img.addEventListener("load", onImgLoad, { once: true }));
 
-    // Watch the DOM for sections that appear later (lazy/Suspense, etc.)
     const mo = new MutationObserver(() => {
       ids.forEach(observeIfPresent);
     });
     mo.observe(document.body, { childList: true, subtree: true });
 
-    // Defensive: on resize, re-ensure everything is observed
     const onResize = () => ids.forEach(observeIfPresent);
     window.addEventListener("resize", onResize);
 
-    // Kick once after paint to catch late mounts
     const raf = requestAnimationFrame(() => ids.forEach(observeIfPresent));
 
     return () => {
@@ -114,7 +108,6 @@ export default function Navbar() {
   const ids = useMemo(() => links.map((l) => l.href.slice(1)), []);
   const active = isHome ? useActiveId(ids, HEADER_OFFSET) : "";
 
-  // Keep URL clean on “/”: prevent hash, scroll, then restore "/"
   const handleNavClick =
     (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       if (isHome) {

@@ -1,4 +1,3 @@
-// src/pages/NotFound.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -18,7 +17,6 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white px-4 text-center relative overflow-hidden">
-      {/* Animated background elements */}
       <motion.div
         className="absolute top-20 left-10 text-6xl opacity-10"
         animate={{ rotate: 360 }}
@@ -34,9 +32,7 @@ const NotFound = () => {
         🎾
       </motion.div>
 
-      {/* Main content */}
       <div className="relative z-10">
-        {/* Cute character illustration */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
@@ -94,7 +90,6 @@ const NotFound = () => {
           </Link>
         </motion.div>
 
-        {/* Bouncing tennis ball */}
         <motion.div
           animate={{
             y: [0, -30, 0],
@@ -110,7 +105,6 @@ const NotFound = () => {
           🎾
         </motion.div>
 
-        {/* Additional decorative elements */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

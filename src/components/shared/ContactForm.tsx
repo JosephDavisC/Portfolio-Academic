@@ -37,7 +37,6 @@ const ContactForm = () => {
     setSubmitStatus('idle');
 
     try {
-      // EmailJS credentials
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
       const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID || '';
@@ -85,7 +84,6 @@ const ContactForm = () => {
       transition={{ duration: 0.6, delay: 0.2 }}
       viewport={{ once: true }}
     >
-      {/* Chibi Character - Floating in the corner */}
       <motion.img
         src="/images/chibis/headphone_joe.PNG"
         alt="Joseph Chibi"
@@ -108,7 +106,6 @@ const ContactForm = () => {
         </h3>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
             Name <span className="text-red-400">*</span>
@@ -130,7 +127,6 @@ const ContactForm = () => {
           )}
         </div>
 
-        {/* Email Field */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
             Email <span className="text-red-400">*</span>
@@ -152,7 +148,6 @@ const ContactForm = () => {
           )}
         </div>
 
-        {/* Subject Field */}
         <div>
           <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">
             Subject <span className="text-red-400">*</span>
@@ -174,7 +169,6 @@ const ContactForm = () => {
           )}
         </div>
 
-        {/* Message Field */}
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
             Message <span className="text-red-400">*</span>
@@ -196,7 +190,6 @@ const ContactForm = () => {
           )}
         </div>
 
-        {/* Submit Button */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <Button
             type="submit"
@@ -216,7 +209,6 @@ const ContactForm = () => {
             )}
           </Button>
 
-          {/* Success/Error Status */}
           {submitStatus === 'success' && (
             <motion.div
               initial={{ opacity: 0, x: -20 }}

@@ -15,36 +15,42 @@ const staggerContainer = {
 const projects = [
   {
     title: "INFO 200: Transfer Evaluation System",
-    image: "/logos/UW_Logo.png",
+    image: "/projects/UW_Transfer_Evaluation_Tool.jpg",
     imageAlt: "INFO 200 Design Project",
     tech: ["UX Design", "AI", "Education", "Prototyping"],
     description:
       "A student-facing tool that predicts credit transfers to UW based on transcripts, intended majors, and historical data. Generates advisor requests and downloadable reports.",
-    status: "In Progress"
+    status: "In Progress",
+    github: undefined,
+    demo: undefined
   },
   {
     title: "INFO 201: AI Job Market & LLM Growth",
-    image: "/logos/UW_Logo.png",
+    image: "/projects/AI _Job_Market_&_LLM_Growth.png",
     imageAlt: "INFO 201 Data Analysis Project",
     tech: ["R", "Data Science", "Kaggle", "Visualization"],
     description:
       "Analyzing how large language model expansion from 2018-2024 relates to AI job demand and salaries. Examining salary growth, experience levels, and company size using Kaggle datasets.",
-    status: "In Progress"
+    status: "In Progress",
+    github: undefined,
+    demo: undefined
   },
   {
     title: "INFO 300: Human Judgment vs. AI Alerts",
-    image: "/logos/UW_Logo.png",
+    image: "/projects/Human_vs_AI.png",
     imageAlt: "INFO 300 Research Proposal",
     tech: ["Research", "Ethics", "AI Trust", "Writing"],
     description:
       "Research proposal investigating how users interpret and trust scam detection alerts from automated systems versus humans. Examines accuracy, reliability, and decision-making behavior.",
-    status: "In Progress"
+    status: "In Progress",
+    github: undefined,
+    demo: undefined
   }
 ];
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-12 px-6">
+    <section id="portfolio" className="py-12 px-6 bg-black/20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -72,39 +78,34 @@ const Portfolio = () => {
             <motion.article
               key={index}
               variants={fadeInUp}
-              className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:border-blue-400/50 transition-all duration-300 group hover:scale-[1.03] hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 flex flex-col"
+              className="bg-white/5 backdrop-blur-sm rounded-3xl p-5 border border-white/10 hover:border-blue-400/50 transition-all duration-300 group hover:scale-[1.03] hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 flex flex-col"
             >
-              {/* Top image */}
-              <figure className="relative overflow-hidden rounded-2xl border border-white/10 group-hover:border-blue-400/30 h-56 md:h-64 flex items-center justify-center bg-white">
+              <figure className="relative overflow-hidden rounded-2xl border border-white/10 group-hover:border-blue-400/30 h-48 md:h-56 flex items-center justify-center" style={{ backgroundColor: '#4C3182' }}>
                 <img
                   src={project.image}
                   alt={project.imageAlt || project.title}
-                  className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-110 p-8"
+                  className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-500/40 via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </figure>
 
-              {/* Title */}
-              <h3 className="mt-5 text-2xl font-semibold group-hover:text-blue-400 transition-colors">
+              <h3 className="mt-4 text-xl font-semibold group-hover:text-blue-400 transition-colors">
                 {project.title}
               </h3>
 
-              {/* Tech badges */}
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-2.5 flex flex-wrap gap-2">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-sm"
+                    className="px-2.5 py-0.5 bg-slate-700/50 text-slate-300 rounded-full text-xs"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              {/* Description */}
-              <p className="text-slate-400 mt-5 mb-4 leading-relaxed text-lg flex-grow">
+              <p className="text-slate-400 mt-4 mb-3 leading-relaxed text-base flex-grow">
                 {project.description}
               </p>
 

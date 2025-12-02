@@ -22,7 +22,6 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        {/* Contact Form */}
         <div className="mb-12">
           <ContactForm />
         </div>
@@ -38,7 +37,6 @@ const Contact = () => {
             Or connect with me
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-10 px-2 sm:px-0">
-            {/* Email */}
             <a
               href="mailto:jchamd@uw.edu"
               className="flex flex-col items-center px-6 py-6 sm:p-8 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300 group border border-white/10 hover:border-slate-400/50 hover:shadow-2xl hover:shadow-slate-500/20 hover:-translate-y-2 hover:scale-105"
@@ -53,7 +51,6 @@ const Contact = () => {
               <p className="text-slate-400 whitespace-nowrap">jchamd@uw.edu</p>
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/joseph-chamdani"
               target="_blank"
@@ -67,7 +64,6 @@ const Contact = () => {
               <p className="text-slate-400 whitespace-nowrap">Let's connect</p>
             </a>
 
-            {/* GitHub */}
             <a
               href="https://github.com/JosephDavisC"
               target="_blank"
@@ -81,7 +77,6 @@ const Contact = () => {
               <p className="text-slate-400 whitespace-nowrap">View my code</p>
             </a>
 
-            {/* ORCID */}
             <a
               href="https://orcid.org/0009-0003-3880-8443"
               target="_blank"
@@ -97,7 +92,6 @@ const Contact = () => {
             </a>
           </div>
 
-          {/* Resume Download */}
           <div className="text-center">
             <a
               href="media/resume.pdf"

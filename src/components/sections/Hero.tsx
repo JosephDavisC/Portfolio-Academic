@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
-const HEADER_OFFSET = 88; // match your fixed navbar height
+const HEADER_OFFSET = 88;
 
 function scrollToIdNoHash(id: string, tries = 0) {
   const el = document.getElementById(id);
@@ -11,17 +11,15 @@ function scrollToIdNoHash(id: string, tries = 0) {
   }
   const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
   window.scrollTo({ top, behavior: "smooth" });
-  window.history.replaceState(null, "", "/"); // keep URL clean (no #hash)
+  window.history.replaceState(null, "", "/");
 }
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20 relative">
-      {/* soft bg glow */}
       <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 via-blue-600/10 to-red-600/5 backdrop-blur-3xl" />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Side - Text */}
           <motion.div
             className="text-left"
             initial={{ opacity: 0, x: -50 }}
@@ -68,14 +66,12 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* CTAs */}
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              {/* View Academic Projects */}
               <a
                 href="#portfolio"
                 onClick={(e) => {
@@ -93,7 +89,6 @@ const Hero = () => {
                 View Academic Projects
               </a>
 
-              {/* Download Resume */}
               <a
                 href="media/resume.pdf"
                 target="_blank"
@@ -109,7 +104,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Profile */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -117,7 +111,6 @@ const Hero = () => {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative group/profile">
-              {/* UW Logo */}
               <div className="absolute -top-4 -left-4 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl z-20 transition-transform duration-300 group-hover/profile:scale-110 group-hover/profile:-translate-y-1">
                 <img src="logos/UW_Logo.png" alt="University of Washington" className="w-10 h-10 object-contain" />
               </div>
@@ -130,7 +123,6 @@ const Hero = () => {
                   JC
                 </AvatarFallback>
 
-                {/* Hover Overlay with Switch Button */}
                 <div className="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover/profile:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30 pointer-events-none group-hover/profile:pointer-events-auto">
                   <motion.a
                     href="https://joechamdani.com"
@@ -149,7 +141,6 @@ const Hero = () => {
                 </div>
               </Avatar>
 
-              {/* Academic Icon */}
               <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl z-20 transition-all duration-300 group-hover/profile:scale-110 group-hover/profile:rotate-12 group-hover/profile:animate-bounce">
                 <span className="text-3xl">📚</span>
               </div>

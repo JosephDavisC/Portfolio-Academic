@@ -55,7 +55,6 @@ const bcFeaturedCourses = [
 ];
 
 const bcAllCourses = [
-  // FALL 2023
   {
     code: "BUS& 101",
     title: "Introduction to Business",
@@ -80,7 +79,6 @@ const bcAllCourses = [
     description: "Social structures and human behavior",
     skills: ["Social Science", "Research"]
   },
-  // WINTER 2024
   {
     code: "CHIN& 122",
     title: "Chinese II",
@@ -105,7 +103,6 @@ const bcAllCourses = [
     description: "Limits, derivatives, and applications",
     skills: ["Calculus", "Math"]
   },
-  // SPRING 2024
   {
     code: "CS 211",
     title: "Fundamentals of CS II",
@@ -124,7 +121,6 @@ const bcAllCourses = [
     description: "Integration techniques and series",
     skills: ["Integration", "Sequences"]
   },
-  // SUMMER 2024
   {
     code: "MATH 208",
     title: "Linear Algebra",
@@ -143,7 +139,6 @@ const bcAllCourses = [
     description: "Mechanics and classical physics",
     skills: ["Physics", "Mechanics"]
   },
-  // FALL 2024
   {
     code: "BA 240",
     title: "Statistical Analysis",
@@ -162,7 +157,6 @@ const bcAllCourses = [
     description: "Electricity, magnetism, and circuits",
     skills: ["Electricity", "Magnetism"]
   },
-  // WINTER 2025
   {
     code: "CHEM& 161",
     title: "General Chemistry I",
@@ -187,7 +181,6 @@ const bcAllCourses = [
     description: "Critical thinking and philosophical analysis",
     skills: ["Philosophy", "Logic"]
   },
-  // SPRING 2025
   {
     code: "ART 154",
     title: "Introduction to Digital Photography",
@@ -212,7 +205,7 @@ export default function Coursework() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="coursework" className="py-12 px-6 bg-black/20">
+    <section id="coursework" className="py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
