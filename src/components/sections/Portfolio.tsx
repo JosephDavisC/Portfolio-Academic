@@ -31,9 +31,9 @@ const projects = [
     tech: ["R", "Data Science", "Kaggle", "Visualization"],
     description:
       "Analyzing how large language model expansion from 2018-2024 relates to AI job demand and salaries. Examining salary growth, experience levels, and company size using Kaggle datasets.",
-    status: "In Progress",
-    github: undefined,
-    demo: undefined
+    status: undefined,
+    github: "https://github.com/JosephDavisC/INFO_201_Final_Project",
+    demo: "/projects/INFO_201/final_report_group_2"
   },
   {
     title: "INFO 300: Human Judgment vs. AI Alerts",

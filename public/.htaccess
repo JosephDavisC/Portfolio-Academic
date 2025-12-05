@@ -1,12 +1,13 @@
-# Enable rewrite engine
-RewriteEngine On
-RewriteBase /
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Serve static blog pages ONLY for social media crawlers
-RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot) [NC]
-RewriteRule ^blog/bc-hacks-2024/?$ /blog/bc-hacks-2024/index.html [L]
+    # Remove .html extension for project reports
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+)$ $1.html [L,QSA]
 
-# For all other requests (real users), serve the React SPA
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [L]
+    # 301 redirect from .html URLs to clean URLs
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+    RewriteRule ^ %1 [R=301,L]
+</IfModule>
