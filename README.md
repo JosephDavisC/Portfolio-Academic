@@ -9,32 +9,32 @@
 
 ---
 
-## 📌 About
+## About
 
 This is my **academic portfolio website** showcasing my coursework, research, and projects from the **University of Washington** and **Bellevue College**.
 
 The site highlights my journey as an **Informatics student @ UW**, featuring academic projects, course history, and research work in AI, data science, and software engineering.
 
-👉 Live Site: **[uw.joechamdani.com](https://uw.joechamdani.com)**
-👉 Personal Portfolio: **[joechamdani.com](https://joechamdani.com)**
+- Live Site: **[uw.joechamdani.com](https://uw.joechamdani.com)**
+- Personal Portfolio: **[joechamdani.com](https://joechamdani.com)**
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
-- ⚛️ **React (TypeScript)** – Frontend framework
-- 🎨 **TailwindCSS** – Styling
-- 🎬 **Framer Motion** – Animations
-- 🖼️ **Lucide React Icons** – Icons
-- 🌐 **Vite** – Build tool
-- 🔀 **React Router** – Client-side routing
-- 🪖 **React Helmet** – SEO meta tags management
-- ✉️ **EmailJS** – Contact form email integration
-- ☁️ **Hostinger** – Hosting
+- **React (TypeScript)** – Frontend framework
+- **TailwindCSS** – Styling
+- **Framer Motion** – Animations
+- **Lucide React Icons** – Icons
+- **Vite** – Build tool
+- **React Router** – Client-side routing
+- **React Helmet** – SEO meta tags management
+- **EmailJS** – Contact form email integration
+- **Hostinger** – Hosting
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 src/
@@ -72,22 +72,22 @@ scripts/
 
 ---
 
-## ⚡ Features
+## Features
 
-- 🎓 **Hero Section** with profile and university branding
-- 📖 **About Section** highlighting academic background
-- 📚 **Coursework Section** showing UW and Bellevue College courses
-- 🔬 **Academic Projects** showcasing current research and coursework
-- ✉️ **Contact Form** with EmailJS integration and auto-reply
-- 🔗 **Professional Links** (Email, LinkedIn, GitHub, ORCID)
-- 🎨 **Dark theme + glassmorphism design**
-- 📱 **Fully responsive** layout for all devices
-- 🔍 **SEO optimized** with Open Graph tags
-- 🎯 **Smooth scroll** navigation and progress indicator
+- **Hero Section** with profile and university branding
+- **About Section** highlighting academic background
+- **Coursework Section** showing UW and Bellevue College courses
+- **Academic Projects** showcasing current research and coursework
+- **Contact Form** with EmailJS integration and auto-reply
+- **Professional Links** (Email, LinkedIn, GitHub, ORCID)
+- **Dark theme + glassmorphism design**
+- **Fully responsive** layout for all devices
+- **SEO optimized** with Open Graph tags
+- **Smooth scroll** navigation and progress indicator
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
 ### Home Section
 
@@ -95,7 +95,7 @@ scripts/
 
 ---
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 Clone the repo and install dependencies:
 
@@ -130,14 +130,14 @@ npm run build
 
 ---
 
-## ☕️ Deployment
+## Deployment
 
 This site is deployed on **Hostinger** with a custom subdomain: [uw.joechamdani.com](https://uw.joechamdani.com).
 You can also easily deploy it on either **Vercel** or **Netlify**.
 
 ---
 
-⚠️ Note: Some browser extensions (e.g. Better Campus, readability tools) may alter the site's appearance.
+**Note:** Some browser extensions (e.g. Better Campus, readability tools) may alter the site's appearance.
 For the best experience, please view with extensions disabled or whitelist this site.
 
 ---
