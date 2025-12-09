@@ -20,9 +20,9 @@ const projects = [
     tech: ["UX Design", "AI", "Education", "Prototyping"],
     description:
       "A student-facing tool that predicts credit transfers to UW based on transcripts, intended majors, and historical data. Generates advisor requests and downloadable reports.",
-    status: "In Progress",
-    github: undefined,
-    demo: undefined
+    status: undefined,
+    github: "https://github.com/JosephDavisC/INFO-200-Final-Project",
+    demo: "https://info200.joechamdani.cloud/"
   },
   {
     title: "INFO 201: AI Job Market & LLM Growth",
@@ -42,9 +42,9 @@ const projects = [
     tech: ["Research", "Ethics", "AI Trust", "Writing"],
     description:
       "Research proposal investigating how users interpret and trust scam detection alerts from automated systems versus humans. Examines accuracy, reliability, and decision-making behavior.",
-    status: "In Progress",
+    status: undefined,
     github: undefined,
-    demo: undefined
+    demo: "/projects/INFO_300/INFO 300A AUT 25 Research Study Proposal - Group BA 3.pdf"
   }
 ];
 

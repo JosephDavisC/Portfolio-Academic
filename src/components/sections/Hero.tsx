@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Database, FlaskConical, BookOpen } from "lucide-react";
 
 const HEADER_OFFSET = 88;
 
@@ -56,11 +57,11 @@ const Hero = () => {
 
               <div className="flex items-center gap-4 text-slate-500">
                 <span className="flex items-center gap-2">
-                  <span className="text-lg">📚</span>
+                  <Database className="w-5 h-5 text-blue-400" />
                   Data Science & AI
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="text-lg">🔬</span>
+                  <FlaskConical className="w-5 h-5 text-purple-400" />
                   Research Focus
                 </span>
               </div>
@@ -141,8 +142,8 @@ const Hero = () => {
                 </div>
               </Avatar>
 
-              <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl z-20 transition-all duration-300 group-hover/profile:scale-110 group-hover/profile:rotate-12 group-hover/profile:animate-bounce">
-                <span className="text-3xl">📚</span>
+              <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl z-20 transition-all duration-300 group-hover/profile:scale-110 group-hover/profile:rotate-12">
+                <BookOpen className="w-8 h-8 text-white" strokeWidth={2.5} />
               </div>
             </div>
           </motion.div>

@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://uw.joechamdani.com/</loc>
-    <lastmod>2024-12-04</lastmod>
+    <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://uw.joechamdani.com/projects/INFO_201/final_report_group_2.html</loc>
     <lastmod>2024-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uw.joechamdani.com/projects/INFO_300/INFO%20300A%20AUT%2025%20Research%20Study%20Proposal%20-%20Group%20BA%203.pdf</loc>
+    <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
