@@ -74,10 +74,11 @@ async function deploy() {
     console.log('🗑️  Clearing old assets folder...');
     try {
       await client.removeDir('assets');
-      console.log('✅ Old assets cleared!\n');
+      console.log('✅ Old assets cleared!');
     } catch (error) {
-      console.log('⚠️  No existing assets folder\n');
+      console.log('⚠️  No existing assets folder');
     }
+
 
     // Count total files
     const localDistPath = path.join(__dirname, '..', 'dist');

@@ -44,7 +44,7 @@ const projects = [
       "Research proposal investigating how users interpret and trust scam detection alerts from automated systems versus humans. Examines accuracy, reliability, and decision-making behavior.",
     status: undefined,
     github: undefined,
-    demo: "/projects/INFO_300/INFO 300A AUT 25 Research Study Proposal - Group BA 3.pdf"
+    demo: "/projects/INFO_300/"
   }
 ];
 

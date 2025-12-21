@@ -9,6 +9,7 @@ import ScrollUpButton from "@/components/shared/ScrollUpButton";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ProjectInfo300 from "./pages/ProjectInfo300";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
 
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/projects/INFO_300" element={<ProjectInfo300 />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

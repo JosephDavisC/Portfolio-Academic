@@ -12,7 +12,34 @@ const staggerContainer = {
   animate: { transition: { staggerChildren: 0.1 } }
 };
 
-const uwCourses = [
+const uwCurrentCourses = [
+  {
+    code: "INFO 290",
+    title: "Orientation to Informatics",
+    description: "Introduction to the iSchool/Informatics mission, culture, values, and resources. Focus on teamwork, leadership, and career preparation including resume, LinkedIn, and portfolio development.",
+    skills: ["Career Prep", "Teamwork", "Leadership", "Portfolio"]
+  },
+  {
+    code: "INFO 340",
+    title: "Client-Side Development",
+    description: "Introduction to client-side web development including markup, programming languages, protocols, libraries, and frameworks for creating interactive, accessible applications.",
+    skills: ["HTML/CSS", "JavaScript", "React", "Web Development"]
+  },
+  {
+    code: "INFO 360",
+    title: "Design Methods",
+    description: "Design paradigms and methods for envisioning information systems. Topics include design thinking, creativity, sketching, prototyping, evaluating, and design justice.",
+    skills: ["Design Thinking", "Prototyping", "UX", "Figma"]
+  },
+  {
+    code: "INFO 380",
+    title: "Product & Information Systems Management",
+    description: "Skills to design information systems and software. Learn to identify and analyze system needs, organizational goals, and system requirements using analysis and design methods.",
+    skills: ["Systems Analysis", "Requirements", "Product Management", "UML"]
+  }
+];
+
+const uwCompletedCourses = [
   {
     code: "INFO 200",
     title: "Intellectual Foundations of Informatics",
@@ -222,7 +249,7 @@ export default function Coursework() {
           </p>
         </motion.div>
 
-        {/* UW Courses */}
+        {/* UW Current Courses - Winter 2026 */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -230,12 +257,63 @@ export default function Coursework() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-2">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
               <img src="/logos/UW_Logo.png" alt="UW" className="w-8 h-8 object-contain" />
             </div>
             <h3 className="text-3xl font-bold text-white">University of Washington</h3>
           </div>
+          <p className="text-purple-400 font-medium mb-6 ml-[60px]">Currently Taking - Winter 2026</p>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8"
+          >
+            {uwCurrentCourses.map((course, index) => (
+              <motion.article
+                key={index}
+                variants={fadeInUp}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-400/30 hover:border-purple-400/50 transition-all duration-300 group hover:scale-[1.03] hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2"
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <BookOpen className="h-6 w-6 text-purple-400 shrink-0 mt-1" />
+                  <div>
+                    <div className="text-sm text-purple-400 font-semibold mb-1">{course.code}</div>
+                    <h4 className="text-lg font-semibold text-white leading-snug">{course.title}</h4>
+                  </div>
+                </div>
+
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  {course.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {course.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-300 rounded-md text-xs"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* UW Completed Courses */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <p className="text-slate-400 font-medium mb-6">Completed Courses</p>
 
           <motion.div
             variants={staggerContainer}
@@ -244,7 +322,7 @@ export default function Coursework() {
             viewport={{ once: true }}
             className="grid md:grid-cols-3 gap-6"
           >
-            {uwCourses.map((course, index) => (
+            {uwCompletedCourses.map((course, index) => (
               <motion.article
                 key={index}
                 variants={fadeInUp}
