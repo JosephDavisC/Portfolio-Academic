@@ -19,4 +19,22 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Core React - ~140KB
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          // Animation & UI - ~100KB
+          'vendor-ui': ['framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-tooltip', '@radix-ui/react-tabs', '@radix-ui/react-accordion'],
+          // Utilities - ~50KB
+          'vendor-utils': ['date-fns', 'clsx', 'tailwind-merge', 'class-variance-authority'],
+          // Charts & Data - ~150KB
+          'vendor-charts': ['recharts', '@tanstack/react-query'],
+          // Icons - ~50KB
+          'vendor-icons': ['lucide-react'],
+        },
+      },
+    },
+  },
 }));

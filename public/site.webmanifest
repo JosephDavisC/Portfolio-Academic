@@ -1,0 +1,22 @@
+{
+  "name": "Joseph Davis Chamdani - Academic Portfolio",
+  "short_name": "JC Portfolio",
+  "description": "Academic portfolio showcasing coursework, research, and projects from UW and Bellevue College.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e40af",
+  "icons": [
+    {
+      "src": "/Joseph-Academic-Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
