@@ -50,7 +50,7 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-12 px-6 bg-black/20">
+    <section id="portfolio" className="py-12 px-6 bg-paper-dark/50 dark:bg-black/20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -59,10 +59,10 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-espresso dark:text-slate-100">
             Academic Projects
           </h2>
-          <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-espresso/60 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             Course projects and research work combining AI, data analytics, and software engineering
           </p>
         </motion.div>
@@ -78,9 +78,9 @@ const Portfolio = () => {
             <motion.article
               key={index}
               variants={fadeInUp}
-              className="bg-white/5 backdrop-blur-sm rounded-3xl p-5 border border-white/10 hover:border-blue-400/50 transition-all duration-300 group hover:scale-[1.03] hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 flex flex-col"
+              className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-5 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-blue-500/20 hover:border-court dark:hover:border-blue-400/50 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
             >
-              <figure className="relative overflow-hidden rounded-2xl border border-white/10 group-hover:border-blue-400/30 h-48 md:h-56 flex items-center justify-center" style={{ backgroundColor: '#4C3182' }}>
+              <figure className="relative overflow-hidden rounded-lg border-2 border-espresso/50 dark:border-white/10 group-hover:border-court dark:group-hover:border-blue-400/30 h-48 md:h-56 flex items-center justify-center" style={{ backgroundColor: '#4C3182' }}>
                 <img
                   src={project.image}
                   alt={project.imageAlt || project.title}
@@ -90,7 +90,7 @@ const Portfolio = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-500/40 via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </figure>
 
-              <h3 className="mt-4 text-xl font-semibold group-hover:text-blue-400 transition-colors">
+              <h3 className="mt-4 text-xl font-semibold group-hover:text-court-dark dark:group-hover:text-[#60A5FA] transition-colors">
                 {project.title}
               </h3>
 
@@ -98,14 +98,14 @@ const Portfolio = () => {
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-0.5 bg-slate-700/50 text-slate-300 rounded-full text-xs"
+                    className="px-2.5 py-0.5 bg-court/20 dark:bg-[#60A5FA]/20 text-court-dark dark:text-[#60A5FA] border border-court/50 dark:border-[#60A5FA]/30 rounded text-xs font-medium"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <p className="text-slate-400 mt-4 mb-3 leading-relaxed text-base flex-grow">
+              <p className="text-espresso/60 dark:text-slate-400 mt-4 mb-3 leading-relaxed text-base flex-grow">
                 {project.description}
               </p>
 
@@ -124,7 +124,7 @@ const Portfolio = () => {
                   {project.github && (
                     <a
                       href={project.github}
-                      className="flex items-center text-blue-400 hover:text-blue-300 transition-colors hover:scale-105"
+                      className="flex items-center text-court-dark dark:text-[#60A5FA] hover:text-court dark:hover:text-[#93C5FD] transition-colors hover:scale-105"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

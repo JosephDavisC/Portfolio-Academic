@@ -241,10 +241,10 @@ export default function Coursework() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-espresso dark:text-slate-100">
             Coursework
           </h2>
-          <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-espresso/60 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             Key courses from UW Informatics and Bellevue College
           </p>
         </motion.div>
@@ -261,7 +261,7 @@ export default function Coursework() {
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
               <img src="/logos/UW_Logo.png" alt="UW" className="w-8 h-8 object-contain" />
             </div>
-            <h3 className="text-3xl font-bold text-white">University of Washington</h3>
+            <h3 className="text-3xl font-bold text-espresso dark:text-white">University of Washington</h3>
           </div>
           <p className="text-purple-400 font-medium mb-6 ml-[60px]">Currently Taking - Winter 2026</p>
 
@@ -276,17 +276,17 @@ export default function Coursework() {
               <motion.article
                 key={index}
                 variants={fadeInUp}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-400/30 hover:border-purple-400/50 transition-all duration-300 group hover:scale-[1.03] hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2"
+                className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 border-2 border-purple-500 dark:border-purple-400/30 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-600 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <BookOpen className="h-6 w-6 text-purple-400 shrink-0 mt-1" />
                   <div>
                     <div className="text-sm text-purple-400 font-semibold mb-1">{course.code}</div>
-                    <h4 className="text-lg font-semibold text-white leading-snug">{course.title}</h4>
+                    <h4 className="text-lg font-semibold text-espresso dark:text-white leading-snug">{course.title}</h4>
                   </div>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                <p className="text-espresso/60 dark:text-slate-400 text-sm leading-relaxed mb-4">
                   {course.description}
                 </p>
 
@@ -313,7 +313,7 @@ export default function Coursework() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <p className="text-slate-400 font-medium mb-6">Completed Courses</p>
+          <p className="text-espresso/60 dark:text-slate-400 font-medium mb-6">Completed Courses</p>
 
           <motion.div
             variants={staggerContainer}
@@ -326,17 +326,17 @@ export default function Coursework() {
               <motion.article
                 key={index}
                 variants={fadeInUp}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-400/50 transition-all duration-300 group hover:scale-[1.03] hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2"
+                className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-500 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <BookOpen className="h-6 w-6 text-purple-400 shrink-0 mt-1" />
                   <div>
                     <div className="text-sm text-purple-400 font-semibold mb-1">{course.code}</div>
-                    <h4 className="text-lg font-semibold text-white leading-snug">{course.title}</h4>
+                    <h4 className="text-lg font-semibold text-espresso dark:text-white leading-snug">{course.title}</h4>
                   </div>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                <p className="text-espresso/60 dark:text-slate-400 text-sm leading-relaxed mb-4">
                   {course.description}
                 </p>
 
@@ -367,7 +367,7 @@ export default function Coursework() {
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
               <img src="/logos/Bellevue_College.jpg" alt="Bellevue College" className="w-8 h-8 object-contain rounded-full" />
             </div>
-            <h3 className="text-3xl font-bold text-white">Bellevue College</h3>
+            <h3 className="text-3xl font-bold text-espresso dark:text-white">Bellevue College</h3>
           </div>
 
           <motion.div
@@ -381,17 +381,17 @@ export default function Coursework() {
               <motion.article
                 key={index}
                 variants={fadeInUp}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#00AEEF]/50 transition-all duration-300 group hover:scale-[1.03] hover:shadow-2xl hover:shadow-[#00AEEF]/20 hover:-translate-y-2"
+                className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-[#00AEEF]/20 hover:border-[#00AEEF] dark:hover:border-[#00AEEF]/50 transition-all duration-300 group hover:-translate-y-1"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <BookOpen className="h-6 w-6 text-[#00AEEF] shrink-0 mt-1" />
                   <div>
                     <div className="text-sm text-[#00AEEF] font-semibold mb-1">{course.code}</div>
-                    <h4 className="text-lg font-semibold text-white leading-snug">{course.title}</h4>
+                    <h4 className="text-lg font-semibold text-espresso dark:text-white leading-snug">{course.title}</h4>
                   </div>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                <p className="text-espresso/60 dark:text-slate-400 text-sm leading-relaxed mb-4">
                   {course.description}
                 </p>
 
@@ -420,10 +420,10 @@ export default function Coursework() {
         >
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 hover:bg-white/10 hover:border-[#00AEEF]/30 transition-all duration-300 group"
+            className="w-full bg-paper dark:bg-white/5 dark:backdrop-blur-sm border-2 border-espresso dark:border-white/10 rounded-xl p-4 shadow-brutal-sm dark:shadow-none hover:shadow-brutal dark:hover:bg-white/10 hover:border-[#00AEEF] dark:hover:border-[#00AEEF]/30 transition-all duration-300 group"
           >
             <div className="flex items-center justify-between">
-              <span className="text-lg font-semibold text-white group-hover:text-[#00AEEF] transition-colors">
+              <span className="text-lg font-semibold text-espresso dark:text-white group-hover:text-[#00AEEF] transition-colors">
                 View All Bellevue College Courses
               </span>
               <ChevronDown
@@ -450,16 +450,16 @@ export default function Coursework() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: isExpanded ? 1 : 0, y: isExpanded ? 0 : 20 }}
                   transition={{ duration: 0.3, delay: isExpanded ? index * 0.03 : 0 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-[#00AEEF]/30 transition-all duration-200 group hover:bg-white/10"
+                  className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-lg p-4 border-2 border-espresso/50 dark:border-white/10 shadow-brutal-sm dark:shadow-none hover:shadow-brutal dark:hover:shadow-sm hover:border-[#00AEEF] dark:hover:border-[#00AEEF]/30 transition-all duration-200 group"
                 >
                   <div className="mb-2">
                     <div className="text-xs text-[#00AEEF] font-semibold mb-1">{course.code}</div>
-                    <h5 className="text-sm font-semibold text-white leading-tight group-hover:text-[#00AEEF] transition-colors">
+                    <h5 className="text-sm font-semibold text-espresso dark:text-white leading-tight group-hover:text-[#00AEEF] transition-colors">
                       {course.title}
                     </h5>
                   </div>
 
-                  <p className="text-slate-400 text-xs leading-relaxed mb-3">
+                  <p className="text-espresso/60 dark:text-slate-400 text-xs leading-relaxed mb-3">
                     {course.description}
                   </p>
 

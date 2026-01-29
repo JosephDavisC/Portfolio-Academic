@@ -20,10 +20,10 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-espresso dark:text-slate-100">
             Academic Journey
           </h2>
-          <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-espresso/60 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             From Running Start to UW Informatics - building technical expertise through hands-on learning
           </p>
         </motion.div>
@@ -34,14 +34,14 @@ export default function About() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/10 hover:border-blue-400/50 transition-all duration-300 group hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 mb-10"
+          className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-8 md:p-10 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-blue-500/20 hover:border-court dark:hover:border-blue-400/50 transition-all duration-300 group hover:-translate-y-1 mb-10"
         >
           <header className="flex items-center mb-5">
             <MapPin className="h-7 w-7 text-red-400 mr-4" />
             <h3 className="text-2xl font-semibold">Educational Path</h3>
           </header>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-[17px]">
+          <div className="space-y-4 text-espresso/70 dark:text-slate-300 leading-relaxed text-[17px]">
             <p>
               I'm pursuing Informatics at the University of Washington, having started my college journey through the Running Start program at Bellevue College. This accelerated path allowed me to dive into advanced coursework early while building a strong foundation in computer science and data analysis.
             </p>
@@ -60,24 +60,24 @@ export default function About() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/10 hover:border-purple-400/50 transition-all duration-300 group hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2"
+          className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-8 md:p-10 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-500 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1"
         >
           <header className="flex items-center mb-5">
             <Lightbulb className="h-7 w-7 text-yellow-400 mr-4" />
             <h3 className="text-2xl font-semibold">Research Interests</h3>
           </header>
 
-          <p className="text-slate-300 leading-relaxed text-[17px] mb-5">
+          <p className="text-espresso/70 dark:text-slate-300 leading-relaxed text-[17px] mb-5">
             I am interested in areas that connect data, technology, and human decision-making. My current academic and research interests include:
           </p>
 
-          <ul className="space-y-3 text-slate-300 leading-relaxed text-[17px]">
+          <ul className="space-y-3 text-espresso/70 dark:text-slate-300 leading-relaxed text-[17px]">
             <li className="flex items-start">
-              <span className="text-blue-400 mr-3 mt-1 flex-shrink-0">•</span>
+              <span className="text-court-dark dark:text-[#60A5FA] mr-3 mt-1 flex-shrink-0">•</span>
               <span>Data science and statistical modeling for real-world applications</span>
             </li>
             <li className="flex items-start">
-              <span className="text-blue-400 mr-3 mt-1 flex-shrink-0">•</span>
+              <span className="text-court-dark dark:text-[#60A5FA] mr-3 mt-1 flex-shrink-0">•</span>
               <span>Large language models and the societal impact of automated systems</span>
             </li>
             <li className="flex items-start">

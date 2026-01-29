@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/context/ThemeContext";
 import ScrollProgress from "@/components/shared/ScrollProgress";
 import ScrollToTop from "@/components/shared/ScrollToTop";
 import ScrollUpButton from "@/components/shared/ScrollUpButton";
@@ -14,27 +15,29 @@ import ProjectInfo300 from "./pages/ProjectInfo300";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        {/* new pages start at the top */}
-        <ScrollToTop />
-        {/* thin progress bar at top */}
-        <ScrollProgress />
+  <ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          {/* new pages start at the top */}
+          <ScrollToTop />
+          {/* thin progress bar at top */}
+          <ScrollProgress />
 
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/projects/INFO_300" element={<ProjectInfo300 />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/projects/INFO_300" element={<ProjectInfo300 />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
 
-        {/* 👇 floating "back to top" arrow on every page */}
-        <ScrollUpButton />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+          {/* floating "back to top" arrow on every page */}
+          <ScrollUpButton />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;

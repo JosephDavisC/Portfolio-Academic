@@ -3,87 +3,261 @@
 @tailwind utilities;
 
 /* ===============================
-   Design tokens (HSL only)
+   Human-Centric Design System
+================================= */
+
+/* Typography Base Styles */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Selection Colors */
+::selection {
+  background-color: #DFFF00; /* Tennis Yellow */
+  color: #3D2B1F; /* Espresso */
+}
+
+.dark ::selection {
+  background-color: #60A5FA; /* Neon Blue */
+  color: #0f172a;
+}
+
+/* Global Theme Transitions */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Disable transitions during initial load */
+html.no-transitions *,
+html.no-transitions *::before,
+html.no-transitions *::after {
+  transition: none !important;
+}
+
+/* ===============================
+   Neobrutalist Component Classes
+================================= */
+
+@layer components {
+  /* Card - Light Mode */
+  .card-brutal {
+    @apply bg-paper border-2 border-espresso rounded-xl;
+    box-shadow: 2px 2px 0px 0px #3D2B1F;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .card-brutal:hover {
+    box-shadow: 3px 3px 0px 0px #3D2B1F;
+    transform: translate(-1px, -1px);
+  }
+
+  .card-brutal:active {
+    box-shadow: 1px 1px 0px 0px #3D2B1F;
+    transform: translate(1px, 1px);
+  }
+
+  /* Card - Dark Mode (Glassmorphism) */
+  .dark .card-brutal {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+  }
+
+  .dark .card-brutal:hover {
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(96, 165, 250, 0.15);
+    transform: translateY(-4px);
+  }
+
+  /* Court Green Card Variant */
+  .card-brutal-court {
+    @apply bg-paper border-2 border-court-dark rounded-xl;
+    box-shadow: 2px 2px 0px 0px #3A9012;
+  }
+
+  .card-brutal-court:hover {
+    box-shadow: 3px 3px 0px 0px #3A9012;
+    transform: translate(-1px, -1px);
+  }
+
+  /* Primary Button */
+  .btn-brutal {
+    @apply px-6 py-3 bg-court text-paper font-semibold border-2 border-espresso rounded-lg;
+    box-shadow: 2px 2px 0px 0px #3D2B1F;
+    transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .btn-brutal:hover {
+    box-shadow: 3px 3px 0px 0px #3D2B1F;
+    transform: translate(-1px, -1px);
+  }
+
+  .btn-brutal:active {
+    box-shadow: 1px 1px 0px 0px #3D2B1F;
+    transform: translate(1px, 1px);
+  }
+
+  /* Primary Button - Dark Mode (Gradient) */
+  .dark .btn-brutal {
+    background: linear-gradient(to right, #2563eb, #dc2626);
+    border-color: transparent;
+    box-shadow: 0 10px 40px -10px rgba(220, 38, 38, 0.4);
+  }
+
+  .dark .btn-brutal:hover {
+    background: linear-gradient(to right, #1d4ed8, #b91c1c);
+    box-shadow: 0 20px 50px -10px rgba(220, 38, 38, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Outline Button */
+  .btn-brutal-outline {
+    @apply px-6 py-3 bg-paper text-espresso font-semibold border-2 border-espresso rounded-lg;
+    box-shadow: 2px 2px 0px 0px #3D2B1F;
+    transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .btn-brutal-outline:hover {
+    @apply bg-espresso text-paper;
+    box-shadow: 3px 3px 0px 0px #3D2B1F;
+    transform: translate(-1px, -1px);
+  }
+
+  /* Outline Button - Dark Mode */
+  .dark .btn-brutal-outline {
+    @apply bg-transparent text-slate-100 border-slate-600;
+    box-shadow: none;
+  }
+
+  .dark .btn-brutal-outline:hover {
+    @apply bg-slate-800 text-white border-neon-blue;
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Scribble Underline */
+  .underline-scribble {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline-scribble::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5.5C20 2 40 7 60 4C80 1 90 6 99 3.5' stroke='%234CBB17' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+  }
+
+  .dark .underline-scribble::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2360A5FA'/%3E%3Cstop offset='100%25' stop-color='%23F87171'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M1 5.5C20 2 40 7 60 4C80 1 90 6 99 3.5' stroke='url(%23grad)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+}
+
+/* ===============================
+   Design tokens (HSL)
 ================================= */
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Light Mode (Paper White Theme) */
+    --background: 43 30% 97%;           /* #F9F7F2 Paper White */
+    --foreground: 20 29% 18%;           /* #3D2B1F Espresso */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 43 25% 95%;
+    --card-foreground: 20 29% 18%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 43 30% 97%;
+    --popover-foreground: 20 29% 18%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 102 79% 41%;             /* #4CBB17 Court Green */
+    --primary-foreground: 43 30% 97%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 20 29% 25%;
+    --secondary-foreground: 43 30% 97%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 43 20% 90%;
+    --muted-foreground: 20 15% 45%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 68 100% 50%;              /* #DFFF00 Tennis Yellow */
+    --accent-foreground: 20 29% 18%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 43 30% 97%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 20 20% 80%;
+    --input: 20 20% 85%;
+    --ring: 102 79% 41%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 43 25% 95%;
+    --sidebar-foreground: 20 29% 18%;
+    --sidebar-primary: 102 79% 41%;
+    --sidebar-primary-foreground: 43 30% 97%;
+    --sidebar-accent: 43 20% 90%;
+    --sidebar-accent-foreground: 20 29% 18%;
+    --sidebar-border: 20 20% 85%;
+    --sidebar-ring: 102 79% 41%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Dark Mode */
+    --background: 222 40% 11%;          /* #141B2D */
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222 40% 11%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 40% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 213 94% 68%;             /* #60A5FA Neon Blue */
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 217 33% 17%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 213 94% 68%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 213 94% 68%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 213 94% 68%;
   }
 }
 
@@ -92,8 +266,95 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-paper text-espresso;
   }
+}
+
+/* Dark mode body override */
+.dark body {
+  background-color: hsl(222 40% 11%);
+  color: hsl(210 40% 98%);
+}
+
+/* ===============================
+   DARK MODE COLOR OVERRIDES
+================================= */
+
+/* Dark mode background overrides */
+.dark .bg-paper {
+  background-color: hsl(222 40% 11%);
+}
+
+.dark .bg-paper-dark {
+  background-color: hsl(222 40% 9%);
+}
+
+/* Dark mode text overrides */
+.dark .text-espresso {
+  color: hsl(210 40% 98%);
+}
+
+.dark .text-espresso\/60 {
+  color: hsl(215 20.2% 65.1%);
+}
+
+.dark .text-espresso\/70 {
+  color: hsl(215 20.2% 70%);
+}
+
+.dark .text-espresso\/80 {
+  color: hsl(215 20.2% 80%);
+}
+
+/* Dark mode border overrides */
+.dark .border-espresso {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .border-espresso\/10,
+.dark .border-espresso\/20,
+.dark .border-espresso\/30,
+.dark .border-espresso\/50 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode court green → neon blue */
+.dark .text-court,
+.dark .text-court-dark {
+  color: #60A5FA;
+}
+
+.dark .bg-court {
+  background: linear-gradient(to right, #2563eb, #dc2626);
+}
+
+.dark .bg-court\/10,
+.dark .bg-court\/20,
+.dark .bg-court\/30 {
+  background-color: rgba(96, 165, 250, 0.15);
+}
+
+.dark .border-court,
+.dark .border-court-dark,
+.dark .border-court\/30,
+.dark .border-court\/50 {
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+/* Dark mode shadows - remove brutal shadows */
+.dark .shadow-brutal,
+.dark .shadow-brutal-sm,
+.dark .shadow-brutal-lg {
+  box-shadow: none;
+}
+
+/* Dark mode espresso background tints */
+.dark .bg-espresso\/5 {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.dark .bg-espresso\/10 {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* --- Custom cursors: stable inheritance version --- */

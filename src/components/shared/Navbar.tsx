@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const HEADER_OFFSET = 88;
 
@@ -130,7 +131,7 @@ export default function Navbar() {
             <li key={link.href} className="relative">
               <Link
                 to={`/${link.href}`}
-                className="px-1 py-1 transition-colors hover:text-blue-300"
+                className="px-1 py-1 transition-colors hover:text-court-dark dark:hover:text-[#60A5FA]"
               >
                 {link.short || link.name}
               </Link>
@@ -144,7 +145,7 @@ export default function Navbar() {
               href={link.href}
               onClick={handleNavClick(link.href)}
               className={`relative px-1 py-1 transition-colors ${
-                isActive ? "text-blue-300" : "hover:text-blue-300"
+                isActive ? "text-court-dark dark:text-[#60A5FA]" : "hover:text-court-dark dark:hover:text-[#60A5FA]"
               }`}
               aria-current={isActive ? "page" : undefined}
             >
@@ -153,7 +154,7 @@ export default function Navbar() {
               <span
                 className={`pointer-events-none absolute -bottom-1 left-0 right-0 h-[2px] rounded-full transition-opacity ${
                   isActive
-                    ? "opacity-100 bg-gradient-to-r from-sky-400 to-rose-400"
+                    ? "opacity-100 bg-court dark:bg-gradient-to-r dark:from-sky-400 dark:to-rose-400"
                     : "opacity-0"
                 }`}
               />
@@ -165,8 +166,8 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/70 backdrop-blur-lg border-b border-white/10 shadow-md">
-      <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-white">
+    <header className="fixed top-0 left-0 w-full z-50 bg-paper/90 dark:bg-slate-900/70 backdrop-blur-lg border-b border-espresso/10 dark:border-white/10 shadow-md transition-colors duration-500">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-espresso dark:text-white">
         {/* Logo */}
         <a href="#home" onClick={handleNavClick("#home")} className="flex items-center">
           <img
@@ -176,32 +177,38 @@ export default function Navbar() {
           />
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6 font-semibold">
-          {desktopLinks}
-        </ul>
+        {/* Desktop links + Theme Toggle */}
+        <div className="hidden md:flex items-center gap-6">
+          <ul className="flex items-center gap-6 font-semibold">
+            {desktopLinks}
+          </ul>
+          <ThemeToggle />
+        </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setIsOpen((s) => !s)}
-          className="md:hidden focus:outline-none"
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile: Theme Toggle + Hamburger */}
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsOpen((s) => !s)}
+            className="focus:outline-none"
+            aria-label="Toggle navigation"
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <ul className="md:hidden bg-slate-900/90 backdrop-blur-lg px-6 py-6 space-y-4 text-center border-t border-white/10 animate-fade-in-down">
+        <ul className="md:hidden bg-paper/95 dark:bg-slate-900/90 backdrop-blur-lg px-6 py-6 space-y-4 text-center border-t border-espresso/10 dark:border-white/10 animate-fade-in-down">
           {links.map((link) =>
             isHome ? (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={handleNavClick(link.href)}
-                  className="block text-white font-semibold text-lg hover:text-blue-300 transition"
+                  className="block text-espresso dark:text-white font-semibold text-lg hover:text-court-dark dark:hover:text-[#60A5FA] transition"
                 >
                   {link.short || link.name}
                 </a>
@@ -211,7 +218,7 @@ export default function Navbar() {
                 <Link
                   to={`/${link.href}`}
                   onClick={() => setIsOpen(false)}
-                  className="block text-white font-semibold text-lg hover:text-blue-300 transition"
+                  className="block text-espresso dark:text-white font-semibold text-lg hover:text-court-dark dark:hover:text-[#60A5FA] transition"
                 >
                   {link.short || link.name}
                 </Link>

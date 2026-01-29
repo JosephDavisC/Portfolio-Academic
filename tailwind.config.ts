@@ -18,7 +18,34 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				heading: ['Manrope', 'system-ui', 'sans-serif'],
+				sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace'],
+			},
 			colors: {
+				// Human-Centric Design System
+				paper: '#F9F7F2',
+				'paper-dark': '#F0EDE5',
+				court: {
+					DEFAULT: '#4CBB17',
+					light: '#6DD035',
+					dark: '#3A9012',
+				},
+				espresso: {
+					DEFAULT: '#3D2B1F',
+					light: '#5C4433',
+					dark: '#2A1D15',
+				},
+				tennis: {
+					DEFAULT: '#DFFF00',
+					muted: '#C5E600',
+				},
+				neon: {
+					blue: '#60A5FA',
+					'blue-hover': '#93C5FD',
+				},
+				// Existing shadcn colors
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -67,6 +94,15 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				'brutal': '2px 2px 0px 0px #3D2B1F',
+				'brutal-sm': '1px 1px 0px 0px #3D2B1F',
+				'brutal-lg': '3px 3px 0px 0px #3D2B1F',
+				'brutal-hover': '3px 3px 0px 0px #3D2B1F',
+				'brutal-court': '2px 2px 0px 0px #3A9012',
+				'brutal-espresso': '2px 2px 0px 0px #2A1D15',
+				'neon-glow': '0 0 12px rgba(96, 165, 250, 0.6)',
 			},
 			keyframes: {
 				'accordion-down': {

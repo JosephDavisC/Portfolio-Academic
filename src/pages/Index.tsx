@@ -14,7 +14,7 @@ const Footer = React.lazy(() => import('@/components/shared/Footer'));
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-paper dark:bg-[#141B2D] text-espresso dark:text-slate-100 overflow-x-hidden transition-colors duration-500">
       <Helmet>
         <title>Academic Portfolio | Joseph Davis Chamdani - UW Informatics</title>
       </Helmet>
@@ -22,7 +22,7 @@ const Index = () => {
       <Hero />
       <About />
 
-      <Suspense fallback={<div className="text-slate-400 text-center py-10">Loading...</div>}>
+      <Suspense fallback={<div className="text-espresso/60 dark:text-slate-400 text-center py-10">Loading...</div>}>
         <Portfolio />
         <Coursework />
         <Contact />
