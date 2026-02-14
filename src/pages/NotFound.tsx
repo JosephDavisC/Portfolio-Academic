@@ -83,7 +83,7 @@ const NotFound = () => {
         >
           <Link
             to="/"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-500/20 text-blue-400 font-bold rounded-xl border border-blue-400/30 hover:bg-blue-500/30 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50"
+            className="btn-brutal inline-flex items-center gap-2 group"
           >
             <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
             Back to Home Court
@@ -109,9 +109,19 @@ const NotFound = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-8 text-slate-400 text-sm"
+          className="mt-8"
         >
-          Error Code: 404 | Page Not Found
+          <p className="text-slate-400 text-sm">
+            Error Code: 404 | Page Not Found
+          </p>
+          <a
+            href="https://status.joechamdani.com"
+            className="mt-2 inline-block text-xs text-slate-500 underline decoration-slate-600 hover:text-slate-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Check system status
+          </a>
         </motion.div>
       </div>
     </div>
