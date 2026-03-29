@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, ChevronDown } from "lucide-react";
+import { BookOpen, ChevronDown, Github } from "lucide-react";
 import { useState } from "react";
 
 const fadeInUp = {
@@ -23,19 +23,22 @@ const uwCurrentCourses = [
     code: "INFO 340",
     title: "Client-Side Development",
     description: "Introduction to client-side web development including markup, programming languages, protocols, libraries, and frameworks for creating interactive, accessible applications.",
-    skills: ["HTML/CSS", "JavaScript", "React", "Web Development"]
+    skills: ["HTML/CSS", "JavaScript", "React", "Web Development"],
+    github: "https://github.com/JosephDavisC/INFO_340"
   },
   {
     code: "INFO 360",
     title: "Design Methods",
     description: "Design paradigms and methods for envisioning information systems. Topics include design thinking, creativity, sketching, prototyping, evaluating, and design justice.",
-    skills: ["Design Thinking", "Prototyping", "UX", "Figma"]
+    skills: ["Design Thinking", "Prototyping", "UX", "Figma"],
+    github: "https://github.com/JosephDavisC/INFO_360"
   },
   {
     code: "INFO 380",
     title: "Product & Information Systems Management",
     description: "Skills to design information systems and software. Learn to identify and analyze system needs, organizational goals, and system requirements using analysis and design methods.",
-    skills: ["Systems Analysis", "Requirements", "Product Management", "UML"]
+    skills: ["Systems Analysis", "Requirements", "Product Management", "UML"],
+    github: "https://github.com/JosephDavisC/INFO_380"
   }
 ];
 
@@ -276,7 +279,7 @@ export default function Coursework() {
               <motion.article
                 key={index}
                 variants={fadeInUp}
-                className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 border-2 border-purple-500 dark:border-purple-400/30 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-600 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1"
+                className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 border-2 border-purple-500 dark:border-purple-400/30 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-600 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <BookOpen className="h-6 w-6 text-purple-400 shrink-0 mt-1" />
@@ -290,15 +293,29 @@ export default function Coursework() {
                   {course.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {course.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-300 rounded-md text-xs"
+                      className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/20 text-espresso dark:text-purple-300 rounded-md text-xs"
                     >
                       {skill}
                     </span>
                   ))}
+                </div>
+
+                <div className="mt-auto">
+                  {course.github && (
+                    <a
+                      href={course.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
+                    >
+                      <Github className="h-4 w-4" />
+                      Code
+                    </a>
+                  )}
                 </div>
               </motion.article>
             ))}
@@ -344,7 +361,7 @@ export default function Coursework() {
                   {course.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-300 rounded-md text-xs"
+                      className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/20 text-espresso dark:text-purple-300 rounded-md text-xs"
                     >
                       {skill}
                     </span>
@@ -399,7 +416,7 @@ export default function Coursework() {
                   {course.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 bg-[#00AEEF]/10 border border-[#00AEEF]/20 text-[#00AEEF] rounded-md text-xs"
+                      className="px-2.5 py-1 bg-[#00AEEF]/10 border border-[#00AEEF]/20 text-espresso dark:text-[#00AEEF] rounded-md text-xs"
                     >
                       {skill}
                     </span>
@@ -467,7 +484,7 @@ export default function Coursework() {
                     {course.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2 py-0.5 bg-[#00AEEF]/10 border border-[#00AEEF]/20 text-[#00AEEF] rounded text-[10px]"
+                        className="px-2 py-0.5 bg-[#00AEEF]/10 border border-[#00AEEF]/20 text-espresso dark:text-[#00AEEF] rounded text-[10px]"
                       >
                         {skill}
                       </span>

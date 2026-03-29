@@ -97,7 +97,7 @@ const Contact = () => {
               href="media/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-10 py-4 bg-court dark:bg-gradient-to-r dark:from-blue-500 dark:to-red-500 text-paper dark:text-white font-semibold rounded-lg border-2 border-espresso dark:border-transparent shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-blue-500/30 transition-all duration-300 group hover:scale-105 hover:-translate-y-1"
+              className="inline-flex items-center px-10 py-4 bg-court dark:bg-[#60A5FA] text-paper font-semibold rounded-lg border-2 border-espresso dark:border-slate-600 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:bg-[#93C5FD] transition-all duration-300 group hover:scale-105 hover:-translate-y-1"
             >
               <Download className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
               Download Resume

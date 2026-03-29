@@ -22,7 +22,8 @@ const projects = [
       "A student-facing tool that predicts credit transfers to UW based on transcripts, intended majors, and historical data. Generates advisor requests and downloadable reports.",
     status: undefined,
     github: "https://github.com/JosephDavisC/INFO-200-Final-Project",
-    demo: "https://info200.joechamdani.cloud/"
+    demo: "https://info200.joechamdani.cloud/",
+    demoLabel: "Demo"
   },
   {
     title: "INFO 201: AI Job Market & LLM Growth",
@@ -33,7 +34,8 @@ const projects = [
       "Analyzing how large language model expansion from 2018-2024 relates to AI job demand and salaries. Examining salary growth, experience levels, and company size using Kaggle datasets.",
     status: undefined,
     github: "https://github.com/JosephDavisC/INFO_201_Final_Project",
-    demo: "/projects/INFO_201/final_report_group_2"
+    demo: "/projects/INFO_201/final_report_group_2",
+    demoLabel: "Report"
   },
   {
     title: "INFO 300: Human Judgment vs. AI Alerts",
@@ -44,7 +46,46 @@ const projects = [
       "Research proposal investigating how users interpret and trust scam detection alerts from automated systems versus humans. Examines accuracy, reliability, and decision-making behavior.",
     status: undefined,
     github: undefined,
-    demo: "/projects/INFO_300/"
+    demo: "/projects/INFO_300/",
+    demoLabel: "Paper"
+  },
+  {
+    title: "INFO 340: Planathon",
+    image: "/projects/INFO_340_Logo.png",
+    imageAlt: "INFO 340 Client-Side Development Project",
+    tech: ["React", "Firebase", "Bootstrap", "Vite"],
+    description:
+      "Hackathon organizer web app that consolidates task management, milestone tracking, team coordination, and event info into a single platform.",
+    status: undefined,
+    github: "https://github.com/JosephDavisC/INFO_340",
+    demo: "https://planathon.web.app/",
+    demoLabel: "Demo",
+    imageBg: "#FFFFFF"
+  },
+  {
+    title: "INFO 360: UW Nap Spot Finder",
+    image: "/projects/INFO_360_Logo.png",
+    imageAlt: "INFO 360 Design Methods Project",
+    tech: ["React", "TypeScript", "UX Design", "Prototyping"],
+    description:
+      "High-fidelity interactive prototype for finding quiet nap spots across UW campus. Features an interactive map with real-time availability, noise filters, walking directions, and a check-in system.",
+    status: undefined,
+    github: "https://github.com/JosephDavisC/INFO_360",
+    demo: "https://info360.joechamdani.com/",
+    demoLabel: "Prototype"
+  },
+  {
+    title: "INFO 380: Course Registration System",
+    image: "/projects/INFO_380_Logo.png",
+    imageAlt: "INFO 380 Systems Management Project",
+    tech: ["React", "TypeScript", "Systems Analysis", "Prototyping"],
+    description:
+      "Course registration prototype with student, advisor, and admin workflows. Features real-time search, conflict detection, waitlist management, and enrollment analytics.",
+    status: undefined,
+    github: "https://github.com/JosephDavisC/INFO_380",
+    demo: "https://info380.joechamdani.com",
+    imageBg: "#FFFFFF",
+    demoLabel: "Prototype"
   }
 ];
 
@@ -80,7 +121,7 @@ const Portfolio = () => {
               variants={fadeInUp}
               className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-5 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-blue-500/20 hover:border-court dark:hover:border-blue-400/50 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
             >
-              <figure className="relative overflow-hidden rounded-lg border-2 border-espresso/50 dark:border-white/10 group-hover:border-court dark:group-hover:border-blue-400/30 h-48 md:h-56 flex items-center justify-center" style={{ backgroundColor: '#4C3182' }}>
+              <figure className="relative overflow-hidden rounded-lg border-2 border-espresso/50 dark:border-white/10 group-hover:border-court dark:group-hover:border-blue-400/30 h-48 md:h-56 flex items-center justify-center" style={{ backgroundColor: project.imageBg || '#4C3182' }}>
                 <img
                   src={project.image}
                   alt={project.imageAlt || project.title}
@@ -120,27 +161,27 @@ const Portfolio = () => {
 
               {/* Links */}
               {(project.github || project.demo) && (
-                <div className="flex gap-6 mt-auto">
+                <div className="flex gap-3 mt-auto">
                   {project.github && (
                     <a
                       href={project.github}
-                      className="flex items-center text-court-dark dark:text-[#60A5FA] hover:text-court dark:hover:text-[#93C5FD] transition-colors hover:scale-105"
+                      className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="h-5 w-5 mr-2" />
+                      <Github className="h-4 w-4" />
                       Code
                     </a>
                   )}
                   {project.demo && (
                     <a
                       href={project.demo}
-                      className="flex items-center text-rose-400 hover:text-rose-300 transition-colors hover:scale-105"
+                      className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="h-5 w-5 mr-2" />
-                      More
+                      <ExternalLink className="h-4 w-4" />
+                      {project.demoLabel || "More"}
                     </a>
                   )}
                 </div>

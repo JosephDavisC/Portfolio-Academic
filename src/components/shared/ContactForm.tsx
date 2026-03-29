@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import emailjs from '@emailjs/browser';
 import { Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -37,27 +36,18 @@ const ContactForm = () => {
     setSubmitStatus('idle');
 
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-      const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID || '';
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+      const response = await fetch('https://joechamdani.com/api/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        subject: data.subject,
-        message: data.message,
-        to_name: 'Joseph',
-      };
+      const result = await response.json();
 
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
-      if (autoReplyTemplateId) {
-        try {
-          await emailjs.send(serviceId, autoReplyTemplateId, templateParams, publicKey);
-        } catch (autoReplyError) {
-          console.warn('Auto-reply failed, but main message was sent:', autoReplyError);
-        }
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to send message');
       }
 
       setSubmitStatus('success');
@@ -68,7 +58,7 @@ const ContactForm = () => {
         setSubmitStatus('idle');
       }, 5000);
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Contact form error:', error);
       setSubmitStatus('error');
       toast.error('Failed to send message. Please try again or email me directly.');
     } finally {
@@ -194,7 +184,7 @@ const ContactForm = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto px-8 py-6 text-lg text-paper font-semibold bg-court dark:bg-gradient-to-r dark:from-blue-500 dark:via-purple-500 dark:to-red-500 border-2 border-espresso dark:border-transparent rounded-lg shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-2xl dark:hover:shadow-purple-500/40 hover:scale-105 hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0"
+            className="w-full sm:w-auto px-8 py-6 text-lg text-paper font-semibold bg-court dark:bg-[#60A5FA] hover:bg-court-dark dark:hover:bg-[#93C5FD] border-2 border-espresso dark:border-slate-600 rounded-lg shadow-brutal dark:shadow-none hover:shadow-brutal-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0"
           >
             {isSubmitting ? (
               <>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,11 +27,36 @@
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="any">
 
-  <link rel="preload" as="image" href="/cursors/jo-normal.png" />
-  <link rel="preload" as="image" href="/cursors/jo-thumb.png" />
+    <!--
+      This page dynamically loads the React app's assets from the main index.html.
+      This prevents breakage when asset hashes change on rebuild.
+      Social media crawlers still see the OG meta tags above.
+    -->
+    <script>
+      fetch('/')
+        .then(function(r) { return r.text(); })
+        .then(function(html) {
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(html, 'text/html');
 
-    <script type="module" crossorigin src="/assets/index-BocmTan9.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C_uOQb6U.css">
+          // Load CSS
+          doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+            var el = document.createElement('link');
+            el.rel = 'stylesheet';
+            el.href = link.getAttribute('href');
+            document.head.appendChild(el);
+          });
+
+          // Load JS modules
+          doc.querySelectorAll('script[type="module"]').forEach(function(script) {
+            var el = document.createElement('script');
+            el.type = 'module';
+            el.crossOrigin = '';
+            el.src = script.getAttribute('src');
+            document.body.appendChild(el);
+          });
+        });
+    </script>
   </head>
 
   <body>
