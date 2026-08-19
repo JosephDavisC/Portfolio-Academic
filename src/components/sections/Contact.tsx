@@ -5,7 +5,7 @@ import ContactForm from '@/components/shared/ContactForm';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-12 px-4 sm:px-6 bg-paper-dark/50 dark:bg-black/20">
+    <section id="contact" className="py-20 md:py-24 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="text-center mb-12"
@@ -14,10 +14,10 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-espresso dark:text-slate-100 pb-2.5">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-espresso dark:text-slate-100 pb-2.5">
             Let's Connect
           </h2>
-          <p className="text-espresso/60 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed px-2">
+          <p className="text-espresso/60 dark:text-slate-300 text-lg md:text-xl max-w-[65ch] mx-auto leading-relaxed px-2">
             Open to academic collaboration, research opportunities, or project discussions.
           </p>
         </motion.div>
@@ -97,7 +97,7 @@ const Contact = () => {
               href="media/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-10 py-4 bg-court dark:bg-[#60A5FA] text-paper font-semibold rounded-lg border-2 border-espresso dark:border-slate-600 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:bg-[#93C5FD] transition-all duration-300 group hover:scale-105 hover:-translate-y-1"
+              className="inline-flex items-center px-10 py-4 bg-court dark:bg-[#60A5FA] text-paper dark:text-[#0f172a] font-semibold rounded-lg border-2 border-espresso dark:border-slate-600 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:bg-[#93C5FD] transition-all duration-300 group hover:scale-105 hover:-translate-y-1"
             >
               <Download className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
               Download Resume

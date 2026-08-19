@@ -12,54 +12,106 @@ const staggerContainer = {
   animate: { transition: { staggerChildren: 0.1 } }
 };
 
-const uwCurrentCourses = [
-  {
-    code: "INFO 290",
-    title: "Orientation to Informatics",
-    description: "Introduction to the iSchool/Informatics mission, culture, values, and resources. Focus on teamwork, leadership, and career preparation including resume, LinkedIn, and portfolio development.",
-    skills: ["Career Prep", "Teamwork", "Leadership", "Portfolio"]
-  },
-  {
-    code: "INFO 340",
-    title: "Client-Side Development",
-    description: "Introduction to client-side web development including markup, programming languages, protocols, libraries, and frameworks for creating interactive, accessible applications.",
-    skills: ["HTML/CSS", "JavaScript", "React", "Web Development"],
-    github: "https://github.com/JosephDavisC/INFO_340"
-  },
-  {
-    code: "INFO 360",
-    title: "Design Methods",
-    description: "Design paradigms and methods for envisioning information systems. Topics include design thinking, creativity, sketching, prototyping, evaluating, and design justice.",
-    skills: ["Design Thinking", "Prototyping", "UX", "Figma"],
-    github: "https://github.com/JosephDavisC/INFO_360"
-  },
-  {
-    code: "INFO 380",
-    title: "Product & Information Systems Management",
-    description: "Skills to design information systems and software. Learn to identify and analyze system needs, organizational goals, and system requirements using analysis and design methods.",
-    skills: ["Systems Analysis", "Requirements", "Product Management", "UML"],
-    github: "https://github.com/JosephDavisC/INFO_380"
-  }
-];
+interface Course {
+  code: string;
+  title: string;
+  description: string;
+  skills: string[];
+  github?: string;
+}
 
-const uwCompletedCourses = [
+interface Quarter {
+  label: string;
+  note?: string;
+  courses: Course[];
+}
+
+const uwQuarters: Quarter[] = [
   {
-    code: "INFO 200",
-    title: "Intellectual Foundations of Informatics",
-    description: "Exploring the conceptual foundations of informatics, including information, data, and the social and ethical implications of technology.",
-    skills: ["Critical Thinking", "Ethics", "Information Theory", "Research"]
+    label: "Spring 2026",
+    courses: [
+      {
+        code: "INFO 330",
+        title: "Databases & Data Modeling",
+        description: "Relational database design and data modeling. Covers SQL, normalization, entity relationship modeling, and working with real datasets in production style databases.",
+        skills: ["SQL", "Data Modeling", "Normalization", "Databases"]
+      },
+      {
+        code: "INFO 498",
+        title: "UX Design for Games",
+        description: "Special topics course on user experience design for games. Designed Resonance, a third person action adventure concept, from pitch and mood boards through interactive UI prototypes.",
+        skills: ["Game UX", "Prototyping", "UI Design", "Playtesting"]
+      },
+      {
+        code: "CSE 373",
+        title: "Data Structures & Algorithms",
+        description: "Data structures and algorithms in Java, including lists, trees, hash tables, graphs, sorting, and asymptotic analysis, applied through team programming projects.",
+        skills: ["Java", "Data Structures", "Algorithms", "Analysis"]
+      },
+      {
+        code: "ARCH 150",
+        title: "Appreciation of Architecture I",
+        description: "Survey of architectural history and design from the ancient world through the medieval period, focused on reading buildings as cultural and visual artifacts.",
+        skills: ["Design History", "Visual Analysis"]
+      }
+    ]
   },
   {
-    code: "INFO 201",
-    title: "Technical Foundations of Informatics",
-    description: "Introduction to programming with R, data analysis, and technical problem-solving for informatics applications.",
-    skills: ["R", "Data Analysis", "Statistics", "Visualization"]
+    label: "Winter 2026",
+    note: "Dean's List · 4.0 quarter",
+    courses: [
+      {
+        code: "INFO 290",
+        title: "Orientation to Informatics",
+        description: "Introduction to the iSchool/Informatics mission, culture, values, and resources. Focus on teamwork, leadership, and career preparation including resume, LinkedIn, and portfolio development.",
+        skills: ["Career Prep", "Teamwork", "Leadership", "Portfolio"]
+      },
+      {
+        code: "INFO 340",
+        title: "Client-Side Development",
+        description: "Introduction to client-side web development including markup, programming languages, protocols, libraries, and frameworks for creating interactive, accessible applications.",
+        skills: ["HTML/CSS", "JavaScript", "React", "Web Development"],
+        github: "https://github.com/JosephDavisC/INFO_340"
+      },
+      {
+        code: "INFO 360",
+        title: "Design Methods",
+        description: "Design paradigms and methods for envisioning information systems. Topics include design thinking, creativity, sketching, prototyping, evaluating, and design justice.",
+        skills: ["Design Thinking", "Prototyping", "UX", "Figma"],
+        github: "https://github.com/JosephDavisC/INFO_360"
+      },
+      {
+        code: "INFO 380",
+        title: "Product & Information Systems Management",
+        description: "Skills to design information systems and software. Learn to identify and analyze system needs, organizational goals, and system requirements using analysis and design methods.",
+        skills: ["Systems Analysis", "Requirements", "Product Management", "UML"],
+        github: "https://github.com/JosephDavisC/INFO_380"
+      }
+    ]
   },
   {
-    code: "INFO 300",
-    title: "Research Methods",
-    description: "Quantitative and qualitative research methods for informatics, including study design, data collection, and analysis techniques.",
-    skills: ["Research Design", "Data Collection", "Analysis", "Academic Writing"]
+    label: "Autumn 2025",
+    note: "Dean's List",
+    courses: [
+      {
+        code: "INFO 200",
+        title: "Intellectual Foundations of Informatics",
+        description: "Exploring the conceptual foundations of informatics, including information, data, and the social and ethical implications of technology.",
+        skills: ["Critical Thinking", "Ethics", "Information Theory", "Research"]
+      },
+      {
+        code: "INFO 201",
+        title: "Foundational Skills for Data Science",
+        description: "Introduction to programming with R, data wrangling, analysis, and visualization for data science applications.",
+        skills: ["R", "Data Analysis", "Statistics", "Visualization"]
+      },
+      {
+        code: "INFO 300",
+        title: "Research Methods",
+        description: "Quantitative and qualitative research methods for informatics, including study design, data collection, and analysis techniques.",
+        skills: ["Research Design", "Data Collection", "Analysis", "Academic Writing"]
+      }
+    ]
   }
 ];
 
@@ -235,142 +287,104 @@ export default function Coursework() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="coursework" className="py-12 px-6">
+    <section id="coursework" className="py-20 md:py-24 px-6 bg-paper-dark/50 dark:bg-black/20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-espresso dark:text-slate-100">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-espresso dark:text-slate-100">
             Coursework
           </h2>
-          <p className="text-espresso/60 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            Key courses from UW Informatics and Bellevue College
+          <p className="text-espresso/60 dark:text-slate-300 text-lg md:text-xl max-w-[65ch] mx-auto leading-relaxed">
+            Courses from UW Informatics and Bellevue College, quarter by quarter
           </p>
         </motion.div>
 
-        {/* UW Current Courses - Winter 2026 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <div className="flex items-center gap-3 mb-2">
+        {/* UW Courses by Quarter */}
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
               <img src="/logos/UW_Logo.png" alt="UW" className="w-8 h-8 object-contain" />
             </div>
-            <h3 className="text-3xl font-bold text-espresso dark:text-white">University of Washington</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-espresso dark:text-white">University of Washington</h3>
           </div>
-          <p className="text-purple-400 font-medium mb-6 ml-[60px]">Currently Taking - Winter 2026</p>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8"
-          >
-            {uwCurrentCourses.map((course, index) => (
-              <motion.article
-                key={index}
-                variants={fadeInUp}
-                className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 border-2 border-purple-500 dark:border-purple-400/30 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-600 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
+          {uwQuarters.map((quarter) => (
+            <motion.div
+              key={quarter.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <div className="flex items-baseline gap-3 mb-6 flex-wrap">
+                <p className="text-purple-500 dark:text-purple-400 font-semibold font-mono">{quarter.label}</p>
+                {quarter.note && (
+                  <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300">
+                    {quarter.note}
+                  </span>
+                )}
+              </div>
+
+              <motion.div
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
-                <div className="flex items-start gap-3 mb-4">
-                  <BookOpen className="h-6 w-6 text-purple-400 shrink-0 mt-1" />
-                  <div>
-                    <div className="text-sm text-purple-400 font-semibold mb-1">{course.code}</div>
-                    <h4 className="text-lg font-semibold text-espresso dark:text-white leading-snug">{course.title}</h4>
-                  </div>
-                </div>
+                {quarter.courses.map((course) => (
+                  <motion.article
+                    key={course.code}
+                    variants={fadeInUp}
+                    className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-7 md:p-8 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-500 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1"
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <div className="flex items-start gap-3">
+                        <BookOpen className="h-6 w-6 text-purple-400 shrink-0 mt-1.5" />
+                        <div>
+                          <div className="text-sm text-purple-500 dark:text-purple-400 font-semibold mb-1 font-mono">{course.code}</div>
+                          <h4 className="text-xl font-semibold text-espresso dark:text-white leading-snug">{course.title}</h4>
+                        </div>
+                      </div>
+                      {course.github && (
+                        <a
+                          href={course.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm shrink-0"
+                        >
+                          <Github className="h-4 w-4" />
+                          Code
+                        </a>
+                      )}
+                    </div>
 
-                <p className="text-espresso/60 dark:text-slate-400 text-sm leading-relaxed mb-4">
-                  {course.description}
-                </p>
+                    <p className="text-espresso/60 dark:text-slate-400 text-[15px] leading-relaxed mb-5 max-w-[65ch]">
+                      {course.description}
+                    </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {course.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/20 text-espresso dark:text-purple-300 rounded-md text-xs"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-auto">
-                  {course.github && (
-                    <a
-                      href={course.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
-                    >
-                      <Github className="h-4 w-4" />
-                      Code
-                    </a>
-                  )}
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* UW Completed Courses */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <p className="text-espresso/60 dark:text-slate-400 font-medium mb-6">Completed Courses</p>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6"
-          >
-            {uwCompletedCourses.map((course, index) => (
-              <motion.article
-                key={index}
-                variants={fadeInUp}
-                className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-purple-500/20 hover:border-purple-500 dark:hover:border-purple-400/50 transition-all duration-300 group hover:-translate-y-1"
-              >
-                <div className="flex items-start gap-3 mb-4">
-                  <BookOpen className="h-6 w-6 text-purple-400 shrink-0 mt-1" />
-                  <div>
-                    <div className="text-sm text-purple-400 font-semibold mb-1">{course.code}</div>
-                    <h4 className="text-lg font-semibold text-espresso dark:text-white leading-snug">{course.title}</h4>
-                  </div>
-                </div>
-
-                <p className="text-espresso/60 dark:text-slate-400 text-sm leading-relaxed mb-4">
-                  {course.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {course.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2.5 py-1 bg-purple-500/10 border border-purple-500/20 text-espresso dark:text-purple-300 rounded-md text-xs"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-        </motion.div>
+                    <div className="flex flex-wrap gap-2">
+                      {course.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-espresso dark:text-purple-300 rounded-md text-xs"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.article>
+                ))}
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
 
         {/* BC Featured Courses */}
         <motion.div
@@ -380,12 +394,13 @@ export default function Coursework() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-              <img src="/logos/Bellevue_College.jpg" alt="Bellevue College" className="w-8 h-8 object-contain rounded-full" />
+          <div className="flex items-center gap-3 mb-2 flex-wrap">
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
+              <img src="/logos/Bellevue_College.jpg" alt="Bellevue College" className="w-9 h-9 object-contain" />
             </div>
-            <h3 className="text-3xl font-bold text-espresso dark:text-white">Bellevue College</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-espresso dark:text-white">Bellevue College</h3>
           </div>
+          <p className="text-[#00AEEF] font-semibold font-mono mb-6 ml-[60px]">AAS · 2023 to 2025 · 90 credits transferred to UW</p>
 
           <motion.div
             variants={staggerContainer}

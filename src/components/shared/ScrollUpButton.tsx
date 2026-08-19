@@ -25,18 +25,18 @@ export default function ScrollUpButton() {
         onClick={scrollTop}
         aria-label="Back to top"
         className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full
-                   text-white/90 border border-white/15 backdrop-blur-md
-                   bg-[#0b1220]/50 shadow-[0_8px_30px_rgba(0,0,0,0.35)]
-                   transition hover:bg-white/10 focus:outline-none
-                   focus-visible:ring-2 focus-visible:ring-pink-400/60"
+                   text-espresso border-2 border-espresso bg-paper shadow-brutal
+                   dark:text-white/90 dark:border-white/15 dark:backdrop-blur-md
+                   dark:bg-[#0b1220]/50 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+                   transition hover:bg-paper-dark dark:hover:bg-white/10 focus:outline-none
+                   focus-visible:ring-2 focus-visible:ring-court/60 dark:focus-visible:ring-[#60A5FA]/60"
       >
         <span
           aria-hidden
-          className="pointer-events-none absolute -inset-px rounded-full
-                     bg-gradient-to-r from-blue-400/50 via-sky-400/30 to-pink-400/50
+          className="pointer-events-none absolute -inset-px rounded-full hidden dark:block
+                     bg-[#60A5FA]/40
                      opacity-40 blur-[6px] transition group-hover:opacity-70"
         />
-        <span aria-hidden className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 to-white/5" />
         <ArrowUp className="relative h-5 w-5 drop-shadow-sm" strokeWidth={3.2} />
         <span className="sr-only">Scroll to top</span>
       </button>

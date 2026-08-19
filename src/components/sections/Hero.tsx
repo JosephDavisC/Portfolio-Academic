@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Database, FlaskConical, BookOpen, Zap } from "lucide-react";
+import { Database, FlaskConical, BookOpen, Zap, GraduationCap } from "lucide-react";
 
 const HEADER_OFFSET = 88;
 
@@ -107,6 +107,14 @@ const Hero = () => {
                 >
                   <FlaskConical className="h-4 w-4" />
                   Research Focus
+                </motion.span>
+                <motion.span
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-espresso/5 dark:bg-white/5 border-2 border-espresso/30 dark:border-white/20 rounded-full text-espresso/80 dark:text-slate-200 font-mono text-sm shadow-brutal-sm dark:shadow-none"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <GraduationCap className="h-4 w-4" />
+                  Class of 2027
                 </motion.span>
               </div>
             </motion.div>

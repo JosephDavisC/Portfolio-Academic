@@ -40,7 +40,7 @@ const ProjectInfo300 = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-block bg-court dark:bg-gradient-to-r dark:from-blue-600 dark:to-red-600 text-paper dark:text-white px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 border-2 border-espresso dark:border-transparent shadow-brutal-sm dark:shadow-none"
+              className="inline-block bg-court dark:bg-[#60A5FA] text-paper dark:text-[#0f172a] px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 border-2 border-espresso dark:border-transparent shadow-brutal-sm dark:shadow-none"
             >
               INFO 300 Research Proposal
             </motion.div>

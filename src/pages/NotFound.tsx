@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 
 const messages = [
   "Game, set, mismatch!",
-  "You hit it out — no page here!",
+  "You hit it out! No page here.",
   "Net error! Try again?",
   "Let's rally back to the homepage.",
   "Ace not found.",
@@ -16,7 +16,7 @@ const NotFound = () => {
   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white px-4 text-center relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-paper dark:bg-[#141B2D] text-espresso dark:text-white px-4 text-center relative overflow-hidden transition-colors duration-500">
       <motion.div
         className="absolute top-20 left-10 text-6xl opacity-10"
         animate={{ rotate: 360 }}
@@ -52,13 +52,13 @@ const NotFound = () => {
           transition={{ duration: 0.6, type: "spring", delay: 0.3 }}
           className="mb-6"
         >
-          <h1 className="text-9xl md:text-[12rem] font-extrabold bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent mb-4 leading-none">
+          <h1 className="text-9xl md:text-[12rem] font-extrabold text-court dark:text-[#60A5FA] mb-4 leading-none">
             404
           </h1>
         </motion.div>
 
         <motion.h2
-          className="text-2xl md:text-3xl font-bold text-white mb-4"
+          className="text-2xl md:text-3xl font-bold text-espresso dark:text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -67,7 +67,7 @@ const NotFound = () => {
         </motion.h2>
 
         <motion.p
-          className="text-slate-300 text-lg mb-8 max-w-md mx-auto"
+          className="text-espresso/70 dark:text-slate-300 text-lg mb-8 max-w-md mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -111,12 +111,12 @@ const NotFound = () => {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-8"
         >
-          <p className="text-slate-400 text-sm">
+          <p className="text-espresso/50 dark:text-slate-400 text-sm">
             Error Code: 404 | Page Not Found
           </p>
           <a
             href="https://status.joechamdani.com"
-            className="mt-2 inline-block text-xs text-slate-500 underline decoration-slate-600 hover:text-slate-300"
+            className="mt-2 inline-block text-xs text-espresso/40 dark:text-slate-500 underline decoration-espresso/30 dark:decoration-slate-600 hover:text-court dark:hover:text-slate-300"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -150,11 +150,11 @@ export default function Navbar() {
               aria-current={isActive ? "page" : undefined}
             >
               {link.short || link.name}
-              {/* gradient underline */}
+              {/* active underline */}
               <span
                 className={`pointer-events-none absolute -bottom-1 left-0 right-0 h-[2px] rounded-full transition-opacity ${
                   isActive
-                    ? "opacity-100 bg-court dark:bg-gradient-to-r dark:from-sky-400 dark:to-rose-400"
+                    ? "opacity-100 bg-court dark:bg-[#60A5FA]"
                     : "opacity-0"
                 }`}
               />

@@ -16,6 +16,7 @@
 
   body {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    line-height: 1.7;
   }
 
   code, pre, .font-mono {
@@ -82,7 +83,7 @@ html.no-transitions *::after {
 
   .dark .card-brutal:hover {
     border-color: rgba(96, 165, 250, 0.5);
-    box-shadow: 0 25px 50px -12px rgba(96, 165, 250, 0.15);
+    box-shadow: 0 0 24px rgba(96, 165, 250, 0.15);
     transform: translateY(-4px);
   }
 
@@ -114,16 +115,17 @@ html.no-transitions *::after {
     transform: translate(1px, 1px);
   }
 
-  /* Primary Button - Dark Mode (Gradient) */
+  /* Primary Button - Dark Mode (Neon Blue) */
   .dark .btn-brutal {
-    background: linear-gradient(to right, #2563eb, #dc2626);
+    background: #60A5FA;
+    color: #0f172a;
     border-color: #475569;
     box-shadow: none;
   }
 
   .dark .btn-brutal:hover {
-    background: linear-gradient(to right, #1d4ed8, #b91c1c);
-    box-shadow: none;
+    background: #93C5FD;
+    box-shadow: 0 0 16px rgba(96, 165, 250, 0.35);
     transform: translateY(-2px);
   }
 
@@ -170,7 +172,7 @@ html.no-transitions *::after {
   }
 
   .dark .underline-scribble::after {
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2360A5FA'/%3E%3Cstop offset='100%25' stop-color='%23F87171'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M1 5.5C20 2 40 7 60 4C80 1 90 6 99 3.5' stroke='url(%23grad)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5.5C20 2 40 7 60 4C80 1 90 6 99 3.5' stroke='%2360A5FA' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   }
 }
 
@@ -295,15 +297,15 @@ html.no-transitions *::after {
 }
 
 .dark .text-espresso\/60 {
-  color: hsl(215 20.2% 65.1%);
+  color: hsl(215 22% 72%);
 }
 
 .dark .text-espresso\/70 {
-  color: hsl(215 20.2% 70%);
+  color: hsl(215 22% 76%);
 }
 
 .dark .text-espresso\/80 {
-  color: hsl(215 20.2% 80%);
+  color: hsl(215 24% 82%);
 }
 
 /* Dark mode border overrides */
@@ -325,7 +327,8 @@ html.no-transitions *::after {
 }
 
 .dark .bg-court {
-  background: linear-gradient(to right, #2563eb, #dc2626);
+  background: #60A5FA;
+  color: #0f172a;
 }
 
 .dark .bg-court\/10,

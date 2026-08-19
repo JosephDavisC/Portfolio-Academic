@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2026-08-19
+
+### Changed
+- Dark mode aligned with the main portfolio: all gradients replaced with solid neon blue accents on buttons, underlines, scroll progress, and the 404 page
+- About section redesigned: scribble underlined heading, stat chips, education timeline, internship history, and research interests with links to the INFO 300 proposal and ORCID
+- Coursework restructured by quarter (Autumn 2025 through Spring 2026) with Dean's List notes, in a two column card layout
+- Readability pass: larger section spacing, calmer heading scale, wider line height, better secondary text contrast in dark mode
+- NotFound page made theme aware
+- Content updated against the current resume and UW transcript
+
+### Added
+- Spring 2026 courses: INFO 330, INFO 498, CSE 373, ARCH 150
+- INFO 498 project cards: Resonance game concept and Witcher 3 UX makeover
+- Light and dark site previews in the README
+
+### Removed
+- EmailJS dependency and configuration (contact form now uses the shared PHP backend)
+- Unused data files, stale lockfile, and scaffold leftovers
+
 ## [1.0.0] - 2025-01-25
 
 ### Added

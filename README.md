@@ -1,143 +1,86 @@
-<a href="https://uw.joechamdani.com" target="_blank">
-  <img src="https://uw.joechamdani.com/Joseph-Academic-Logo.png" alt="Joseph Davis Chamdani Logo" width="120" align="left"/>
-</a>
+# Academic Portfolio
 
-# Joseph Davis Chamdani – Academic Portfolio
+Academic portfolio of Joseph Davis Chamdani, Informatics student at the University of Washington. The site presents coursework from UW and Bellevue College, academic projects, and research work in data science, AI, and human computer interaction.
 
-[![Website](https://img.shields.io/badge/Website-uw.joechamdani.com-6f42c1?style=for-the-badge&logo=vercel&logoColor=white)](https://uw.joechamdani.com)
+- Live site: [uw.joechamdani.com](https://uw.joechamdani.com)
+- Personal portfolio: [joechamdani.com](https://joechamdani.com)
 
-
----
-
-## About
-
-This is my **academic portfolio website** showcasing my coursework, research, and projects from the **University of Washington** and **Bellevue College**.
-
-The site highlights my journey as an **Informatics student @ UW**, featuring academic projects, course history, and research work in AI, data science, and software engineering.
-
-- Live Site: **[uw.joechamdani.com](https://uw.joechamdani.com)**
-- Personal Portfolio: **[joechamdani.com](https://joechamdani.com)**
-
----
+| Light | Dark |
+|-------|------|
+| ![Light mode preview](public/media/preview-light.webp) | ![Dark mode preview](public/media/preview-dark.webp) |
 
 ## Tech Stack
 
-- **React (TypeScript)** – Frontend framework
-- **TailwindCSS** – Styling
-- **Framer Motion** – Animations
-- **Lucide React Icons** – Icons
-- **Vite** – Build tool
-- **React Router** – Client-side routing
-- **React Helmet** – SEO meta tags management
-- **EmailJS** – Contact form email integration
-- **Hostinger** – Hosting
+| Layer | Choice |
+|-------|--------|
+| Framework | React 18 with TypeScript |
+| Build tool | Vite |
+| Styling | Tailwind CSS (class based dark mode) |
+| Animations | Framer Motion |
+| UI components | Radix UI (shadcn/ui) |
+| Routing | React Router DOM v6 |
+| SEO | react-helmet-async |
+| Forms | react-hook-form with zod validation |
+| Hosting | Hostinger, deployed over FTP |
 
----
+## Features
+
+- Dual theme neobrutalist design system shared with joechamdani.com: paper white with court green accents in light mode, deep slate with neon blue accents and glassmorphism cards in dark mode
+- Theme toggle with localStorage persistence and a flash prevention script in index.html
+- Coursework grouped by quarter, with an expandable list of all Bellevue College courses
+- Academic project cards for INFO 200, 201, 300, 340, 360, 380, and 498 with GitHub and live demo links
+- Contact form posting to a shared PHP backend on the main portfolio
+- Structured data (Schema.org), Open Graph tags, and page level meta via react-helmet-async
+- Security headers (HSTS, CSP, Permissions-Policy) configured in .htaccess
 
 ## Project Structure
 
 ```
 src/
- ├── components/       # Reusable React components
- │    ├── sections/   # Main page sections
- │    │    ├── Hero.tsx
- │    │    ├── About.tsx
- │    │    ├── Coursework.tsx
- │    │    ├── Portfolio.tsx
- │    │    └── Contact.tsx
- │    └── shared/     # Shared components
- │         ├── Navbar.tsx
- │         ├── Footer.tsx
- │         ├── ContactForm.tsx
- │         ├── ScrollProgress.tsx
- │         ├── ScrollToTop.tsx
- │         └── ScrollUpButton.tsx
- │
- ├── hooks/            # Custom React hooks
- ├── lib/              # Utilities
- ├── pages/            # Page-level components
- │    ├── Index.tsx   # Homepage
- │    └── NotFound.tsx
- ├── App.tsx           # Main app entry with routing
- └── main.tsx          # Vite bootstrap
+  components/
+    sections/        Hero, About, Portfolio, Coursework, Contact
+    shared/          Navbar, Footer, ContactForm, theme and scroll components
+    ui/              shadcn/ui primitives
+  context/           ThemeContext (localStorage key: uw-joechamdani-theme)
+  pages/             Index, ProjectInfo300, NotFound
+  lib/               Utilities
 
 public/
- ├── logos/            # University logos
- ├── media/            # Media files (resume, etc.)
- └── cursors/          # Custom cursor assets
+  projects/          Project images and static report pages (INFO 201, INFO 300)
+  logos/             School and company logos
+  media/             Resume and site previews
+  cursors/           Custom cursor assets
 
 scripts/
- └── deploy-ftp.js     # FTP deployment script
+  deploy-ftp.js      FTP deployment with retries and reconnect logic
 ```
 
----
+## Routes
 
-## Features
+| Route | Page |
+|-------|------|
+| `/` | Homepage with all sections |
+| `/projects/INFO_300/` | INFO 300 research proposal |
+| `/projects/INFO_201/final_report_group_2` | INFO 201 final report (static HTML) |
 
-- **Hero Section** with profile and university branding
-- **About Section** highlighting academic background
-- **Coursework Section** showing UW and Bellevue College courses
-- **Academic Projects** showcasing current research and coursework
-- **Contact Form** with EmailJS integration and auto-reply
-- **Professional Links** (Email, LinkedIn, GitHub, ORCID)
-- **Dark theme + glassmorphism design**
-- **Fully responsive** layout for all devices
-- **SEO optimized** with Open Graph tags
-- **Smooth scroll** navigation and progress indicator
-
----
-
-## Screenshots
-
-### Home Section
-
-![Home](public/media/preview-website.png)
-
----
-
-## Setup & Installation
-
-Clone the repo and install dependencies:
+## Development
 
 ```bash
-git clone https://github.com/JosephDavisC/portfolio-academic.git
-cd portfolio-academic
 npm install
+npm run dev      # dev server on port 8080
+npm run build    # production build with code splitting
 ```
 
-### Environment Variables
-
-For the contact form to work, create a `.env` file in the root directory:
-
-```env
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID=your_autoreply_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-Run locally:
-
-```bash
-npm run dev
-```
-
-Build for production:
-
-```bash
-npm run build
-```
-
----
+The contact form relies on the main portfolio's backend at joechamdani.com/api/contact.php and requires no local configuration.
 
 ## Deployment
 
-This site is deployed on **Hostinger** with a custom subdomain: [uw.joechamdani.com](https://uw.joechamdani.com).
-You can also easily deploy it on either **Vercel** or **Netlify**.
+```bash
+npm run deploy   # build, then upload to Hostinger over FTP
+```
 
----
+Deployment reads credentials from `scripts/ftp-config.json`, which is not committed. The build is split into vendor chunks (see `vite.config.ts`) to keep individual FTP uploads small.
 
-**Note:** Some browser extensions (e.g. Better Campus, readability tools) may alter the site's appearance.
-For the best experience, please view with extensions disabled or whitelist this site.
+## License
 
----
+Content and design are personal work. Feel free to reference the code, but please do not republish the content as your own.

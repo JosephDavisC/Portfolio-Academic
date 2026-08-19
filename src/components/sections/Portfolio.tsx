@@ -86,24 +86,48 @@ const projects = [
     demo: "https://info380.joechamdani.com",
     imageBg: "#FFFFFF",
     demoLabel: "Prototype"
+  },
+  {
+    title: "INFO 498: Resonance Game Concept",
+    image: "/projects/INFO_498_Resonance.webp",
+    imageAlt: "INFO 498 Resonance character selection UI prototype",
+    tech: ["Game UX", "UI Design", "Prototyping", "React"],
+    description:
+      "Team game concept from UX Design for Games: Resonance, a third person action adventure rooted in Greek mythology. Designed from pitch and mood boards through an interactive character selection UI prototype.",
+    status: undefined,
+    github: undefined,
+    demo: "https://joechamdani.com/archive/info498resonance/",
+    demoLabel: "Prototype"
+  },
+  {
+    title: "INFO 498: Witcher 3 UX Makeover",
+    image: "/projects/INFO_498_Witcher_Makeover.webp",
+    imageAlt: "INFO 498 Witcher 3 inventory redesign prototype",
+    tech: ["Game UX", "UX Critique", "UI Design", "Prototyping"],
+    description:
+      "Interactive redesign of The Witcher 3 inventory system. Rebuilt the shop, repair, and inventory flows around search, sorting, and clearer item comparison to reduce menu friction.",
+    status: undefined,
+    github: undefined,
+    demo: "https://joechamdani.com/archive/info498/",
+    demoLabel: "Prototype"
   }
 ];
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-12 px-6 bg-paper-dark/50 dark:bg-black/20">
+    <section id="portfolio" className="py-20 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-espresso dark:text-slate-100">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-espresso dark:text-slate-100">
             Academic Projects
           </h2>
-          <p className="text-espresso/60 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-espresso/60 dark:text-slate-300 text-lg md:text-xl max-w-[65ch] mx-auto leading-relaxed">
             Course projects and research work combining AI, data analytics, and software engineering
           </p>
         </motion.div>
