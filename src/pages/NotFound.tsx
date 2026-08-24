@@ -16,7 +16,7 @@ const NotFound = () => {
   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-paper dark:bg-[#141B2D] text-espresso dark:text-white px-4 text-center relative overflow-hidden transition-colors duration-500">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-paper dark:bg-[#141B2D] text-espresso dark:text-white px-4 text-center relative overflow-hidden transition-colors duration-200">
       <motion.div
         className="absolute top-20 left-10 text-6xl opacity-10"
         animate={{ rotate: 360 }}

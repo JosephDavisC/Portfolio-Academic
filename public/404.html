@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Served by ErrorDocument with a real 404 status. Must never be indexed. -->
+    <meta name="robots" content="noindex, follow" />
+    <title>Page not found | Joseph Davis Chamdani</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+
+    <script>
+      (function () {
+        document.documentElement.classList.add('no-transitions');
+        var theme = localStorage.getItem('uw-joechamdani-theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <style>
+      html { background: #F9F7F2; color-scheme: light; }
+      html.dark { background: #141B2D; color-scheme: dark; }
+      #nf { max-width: 40rem; margin: 0 auto; padding: 6rem 1.5rem;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.7; color: #3D2B1F; }
+      html.dark #nf { color: hsl(210 40% 98%); }
+      #nf a { color: #3A9012; }
+      html.dark #nf a { color: #60A5FA; }
+    </style>
+
+    <!--
+      Same dynamic asset loader as public/projects/INFO_300/index.html: fetch the
+      built index.html and inject whatever hashed assets it references, so this page
+      never breaks when Vite rehashes filenames. React Router then renders NotFound.
+      Do NOT replace this with hardcoded asset paths.
+    -->
+    <script>
+      fetch('/')
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          doc.querySelectorAll('link[rel="stylesheet"]').forEach(function (link) {
+            var el = document.createElement('link');
+            el.rel = 'stylesheet';
+            el.href = link.getAttribute('href');
+            document.head.appendChild(el);
+          });
+          doc.querySelectorAll('script[type="module"]').forEach(function (script) {
+            var el = document.createElement('script');
+            el.type = 'module';
+            el.crossOrigin = '';
+            el.src = script.getAttribute('src');
+            document.body.appendChild(el);
+          });
+        });
+    </script>
+  </head>
+
+  <body>
+    <div id="root">
+      <main id="nf">
+        <h1>Page not found</h1>
+        <p>That page does not exist on this site.</p>
+        <p><a href="/">Go to the academic portfolio home page</a></p>
+      </main>
+    </div>
+  </body>
+</html>

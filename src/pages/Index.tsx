@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
@@ -14,7 +14,7 @@ const Footer = React.lazy(() => import('@/components/shared/Footer'));
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-paper dark:bg-[#141B2D] text-espresso dark:text-slate-100 overflow-x-hidden transition-colors duration-500">
+    <div className="min-h-screen bg-paper dark:bg-[#141B2D] text-espresso dark:text-slate-100 overflow-x-hidden transition-colors duration-200">
       <Helmet>
         <title>Academic Portfolio | Joseph Davis Chamdani - UW Informatics</title>
       </Helmet>

@@ -166,7 +166,7 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-paper/90 dark:bg-slate-900/70 backdrop-blur-lg border-b border-espresso/10 dark:border-white/10 shadow-md transition-colors duration-500">
+    <header className="fixed top-0 left-0 w-full z-50 bg-paper/90 dark:bg-slate-900/70 backdrop-blur-lg border-b border-espresso/10 dark:border-white/10 shadow-md transition-colors duration-200">
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-espresso dark:text-white">
         {/* Logo */}
         <a href="#home" onClick={handleNavClick("#home")} className="flex items-center">

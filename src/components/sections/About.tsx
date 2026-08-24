@@ -26,11 +26,11 @@ const roles = [
 ];
 
 const interests = [
-  "Data science and statistical modeling for real world applications",
-  "Large language models and the societal impact of automated systems",
-  "Human AI interaction and how people interpret algorithmic decisions",
-  "AI ethics, trust, and fairness in decision support tools",
-  "Applied machine learning in education, finance, and public systems"
+  "AI security and red teaming: finding where language models fail, and building tooling that surfaces those failures automatically",
+  "Applied AI in education, especially systems that make institutional processes like credit transfer legible to the students they affect",
+  "Human AI interaction: how people read, trust, and override automated decisions, and what an interface owes them when a model is uncertain",
+  "Building AI products end to end, from problem framing through evaluation to the parts that break in production",
+  "Reliability of systems people depend on, including monitoring, failure modes, and the distance between something working and something being watched",
 ];
 
 export default function About() {
@@ -50,7 +50,7 @@ export default function About() {
             <span className="underline-scribble">iSchool</span>
           </h2>
           <p className="text-espresso/60 dark:text-slate-300 text-xl max-w-3xl mx-auto leading-relaxed font-mono">
-            Informatics junior @ UW. Data science, AI, and how people actually use them.
+            Informatics junior @ UW. AI, product, and how people actually use them.
           </p>
           <div className="flex flex-wrap justify-center gap-2 mt-7">
             {stats.map((stat) => (
@@ -164,19 +164,22 @@ export default function About() {
           viewport={{ once: true }}
           className="card-brutal p-8 md:p-10 mt-8"
         >
-          <header className="flex items-center mb-5">
-            <div className="w-12 h-12 rounded-full bg-court/20 dark:bg-[#60A5FA]/20 border-2 border-court dark:border-[#60A5FA] flex items-center justify-center mr-4">
-              <Lightbulb className="h-6 w-6 text-court-dark dark:text-[#60A5FA]" />
-            </div>
-            <h3 className="text-2xl font-heading font-semibold text-espresso dark:text-slate-100">Research Interests</h3>
-          </header>
+          <div className="grid md:grid-cols-5 gap-8 items-stretch">
+            {/* Left column: title, tagline, then the list. The card on the right
+                starts level with this header and both columns end together. */}
+            <div className="md:col-span-3 flex flex-col">
+            <header className="flex items-center mb-5">
+              <div className="w-12 h-12 rounded-full bg-court/20 dark:bg-[#60A5FA]/20 border-2 border-court dark:border-[#60A5FA] flex items-center justify-center mr-4 flex-shrink-0">
+                <Lightbulb className="h-6 w-6 text-court-dark dark:text-[#60A5FA]" />
+              </div>
+              <h3 className="text-2xl font-heading font-semibold text-espresso dark:text-slate-100">Research Interests</h3>
+            </header>
 
-          <p className="text-espresso/60 dark:text-slate-400 mb-6 font-mono text-sm">
-            The space where data, technology, and human decision making meet.
-          </p>
+            <p className="text-espresso/60 dark:text-slate-400 mb-6 font-mono text-sm">
+              Where AI systems meet the people who have to trust them.
+            </p>
 
-          <div className="grid md:grid-cols-5 gap-8 items-start">
-            <ul className="md:col-span-3 space-y-3.5 text-espresso/70 dark:text-slate-300 leading-relaxed text-[16px]">
+            <ul className="flex-1 flex flex-col justify-between gap-3.5 text-espresso/70 dark:text-slate-300 leading-relaxed text-[15px] sm:text-[16px]">
               {interests.map((item) => (
                 <li key={item} className="flex items-start">
                   <span className="text-court-dark dark:text-[#60A5FA] mr-3 flex-shrink-0 font-bold">•</span>
@@ -184,23 +187,41 @@ export default function About() {
                 </li>
               ))}
             </ul>
+            </div>
 
-            <div className="md:col-span-2 rounded-xl border-2 border-espresso/20 dark:border-white/10 bg-espresso/5 dark:bg-white/5 p-6">
+            <div className="md:col-span-2 h-full flex flex-col rounded-xl border-2 border-espresso/20 dark:border-white/10 bg-espresso/5 dark:bg-white/5 p-6">
+              <a
+                href="/projects/INFO_300/"
+                className="group/paper block h-40 sm:h-44 mb-5 rounded-lg overflow-hidden border-2 border-espresso/20 dark:border-white/10"
+                aria-label="Read the INFO 300 research proposal"
+              >
+                <picture className="block h-full">
+                  <source srcSet="/projects/INFO_300/proposal-preview.webp" type="image/webp" />
+                  <img
+                    src="/projects/INFO_300/proposal-preview.png"
+                    alt="First page of the INFO 300 research proposal, Human Judgment vs. AI Alerts"
+                    width={760}
+                    height={985}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top transition-transform duration-300 group-hover/paper:scale-[1.03]"
+                  />
+                </picture>
+              </a>
               <p className="font-mono text-[10px] font-semibold uppercase tracking-widest text-espresso/40 dark:text-slate-500 mb-2">
                 Research in action
               </p>
               <p className="text-espresso/70 dark:text-slate-300 text-[15px] leading-relaxed mb-5">
                 This thinking already shows up in my coursework: my INFO 300 proposal studies how people trust AI scam alerts versus human ones.
               </p>
-              <div className="flex flex-col sm:flex-row md:flex-col gap-3">
-                <a href="/projects/INFO_300/" className="btn-brutal inline-flex items-center justify-center gap-2 px-4 py-2 text-sm">
+              <div className="mt-auto flex flex-col sm:flex-row md:flex-col gap-3">
+                <a href="/projects/INFO_300/" className="btn-brutal inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] text-sm">
                   Read the Proposal
                 </a>
                 <a
                   href="https://orcid.org/0009-0003-3880-8443"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-brutal-outline inline-flex items-center justify-center gap-2 px-4 py-2 text-sm"
+                  className="btn-brutal-outline inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] text-sm"
                 >
                   ORCID Profile
                 </a>

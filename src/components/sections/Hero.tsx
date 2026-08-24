@@ -35,6 +35,12 @@ const ScribbleUnderline = () => (
   </svg>
 );
 
+/**
+ * Entry animations are intentionally disabled (initial={false}) on the four
+ * top-level blocks below. index.html paints a pixel-matched static copy of this
+ * hero before React mounts, so animating in from opacity 0 would make the same
+ * content blink out and fade back. Scroll animations elsewhere are unaffected.
+ */
 const Hero = () => {
   const [isHoveringProfile, setIsHoveringProfile] = useState(false);
 
@@ -52,12 +58,12 @@ const Hero = () => {
           {/* Left Content */}
           <motion.div
             className="text-left"
-            initial={{ opacity: 0, x: -50 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8"
@@ -121,7 +127,7 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
+              initial={false}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6, type: "spring", stiffness: 100 }}
               className="flex flex-col sm:flex-row gap-4"
@@ -162,7 +168,7 @@ const Hero = () => {
 
           {/* Right - Profile Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
             className="flex justify-center lg:justify-end"

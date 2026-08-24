@@ -110,18 +110,222 @@
       `);
     </script>   
 
-  <link rel="preload" as="image" href="/cursors/jo-normal.png" />
-  <link rel="preload" as="image" href="/cursors/jo-thumb.png" />
 
   <!-- Google Fonts: Manrope (headings), Plus Jakarta Sans (body), JetBrains Mono (code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+
+  <!--
+    Styling for the static fallback block in <body>. Scoped to #seo-fallback so it
+    cannot leak into the React app, which replaces the block on mount.
+    Mirrors the design system (see .claude/CLAUDE.md) so the pre-hydration paint
+    matches the site instead of flashing as unstyled HTML.
+    The html background rules also kill the white flash on dark mode load.
+  -->
+  <style>
+    html { background: #F9F7F2; color-scheme: light; }
+    html.dark { background: #141B2D; color-scheme: dark; }
+
+    #seo-fallback {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #3D2B1F;
+    }
+    html.dark #seo-fallback { color: hsl(210 40% 98%); }
+
+    #seo-fallback h2 {
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      margin: 3.5rem 0 1rem;
+    }
+    #seo-fallback h3 {
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 2rem 0 0.75rem;
+    }
+    #seo-fallback p { margin: 0 0 1rem; max-width: 65ch; }
+
+    #seo-fallback ul { margin: 0 0 1rem; padding-left: 1.25rem; max-width: 70ch; }
+    #seo-fallback li { margin-bottom: 0.6rem; }
+    #seo-fallback strong { font-weight: 600; }
+
+    #seo-fallback a {
+      color: #3A9012;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    html.dark #seo-fallback a { color: #60A5FA; }
+  </style>
+
+  <script defer src="https://analytics.joechamdani.com/script.js" data-auto-track="false" data-website-id="e807de36-601c-42c4-8186-1bf1c0ace187"></script>
+
   </head>
  
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- SEO_FALLBACK_START -->
+      <!--
+        Static fallback for crawlers and AI readers that do not run JavaScript.
+        React uses createRoot().render(), NOT hydrateRoot(), so it REPLACES everything
+        below on mount. Visitors never see this; no hydration mismatch is possible.
+
+        The navbar and hero below use the REAL Tailwind classes from Navbar.tsx and
+        Hero.tsx, so the pre-hydration paint matches the site pixel for pixel. That
+        only works because "./index.html" is in tailwind.config.ts content globs.
+        Remove it and these classes get purged and the block renders unstyled.
+
+        Below the fold nobody ever sees this, so those sections stay simple markup
+        styled by the #seo-fallback rules in <head>.
+
+        THIS DUPLICATES CONTENT. When you change Navbar, Hero, About, Coursework,
+        Portfolio, or Contact, update this block too.
+        See .claude/skills/seo-checklist/SKILL.md.
+      -->
+      <div class="min-h-screen bg-paper dark:bg-[#141B2D] text-espresso dark:text-slate-100 overflow-x-hidden">
+
+        <header class="fixed top-0 left-0 w-full z-50 bg-paper/90 dark:bg-slate-900/70 backdrop-blur-lg border-b border-espresso/10 dark:border-white/10 shadow-md">
+          <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-espresso dark:text-white">
+            <a href="#home" class="flex items-center">
+              <img src="/Joseph-Academic-Logo.png" alt="Logo" class="h-11 w-11 rounded-full object-cover shadow-md" />
+            </a>
+            <div class="hidden md:flex items-center gap-6">
+              <ul class="flex items-center gap-6 font-semibold">
+                <li class="relative"><a href="#home" class="relative px-1 py-1 text-court-dark dark:text-[#60A5FA]">Home</a></li>
+                <li class="relative"><a href="#about" class="relative px-1 py-1">About</a></li>
+                <li class="relative"><a href="#portfolio" class="relative px-1 py-1">Projects</a></li>
+                <li class="relative"><a href="#coursework" class="relative px-1 py-1">Coursework</a></li>
+                <li class="relative"><a href="#contact" class="relative px-1 py-1">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+
+        <section id="home" class="min-h-screen flex items-center justify-center px-6 py-20 relative bg-paper dark:bg-[#141B2D]">
+          <div class="absolute inset-0 opacity-30 dark:opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-court/20 dark:bg-[#60A5FA]/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 dark:bg-violet-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-espresso/5 dark:bg-slate-500/5 rounded-full blur-3xl"></div>
+          </div>
+
+          <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+              <div class="text-left">
+                <div class="mb-8">
+                  <div class="mb-6">
+                    <h1 class="text-5xl md:text-7xl font-heading font-bold text-espresso dark:text-slate-100 leading-tight tracking-tight">
+                      Joseph Davis <span class="relative inline-block">Chamdani<svg class="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M2 8C30 4 60 10 100 6C140 2 170 9 198 5" class="stroke-court dark:stroke-[#60A5FA]" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </h1>
+                  </div>
+
+                  <p class="text-2xl md:text-3xl text-espresso/80 dark:text-slate-300 mb-4 font-light">
+                    Informatics Student @ <a href="https://www.washington.edu" class="text-court-dark dark:text-[#60A5FA] font-medium underline decoration-2 decoration-court/50 dark:decoration-[#60A5FA]/50 underline-offset-4">University of Washington</a>
+                  </p>
+
+                  <p class="text-lg text-espresso/60 dark:text-slate-400 max-w-2xl leading-relaxed mb-6 font-mono">
+                    Academic portfolio showcasing coursework, research, and projects
+                  </p>
+
+                  <div class="flex items-center gap-3 flex-wrap">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-court/10 dark:bg-[#60A5FA]/10 border-2 border-court/30 dark:border-[#60A5FA]/30 rounded-full text-court-dark dark:text-[#60A5FA] font-mono text-sm shadow-brutal-sm dark:shadow-none">Data Science &amp; AI</span>
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 dark:bg-purple-400/10 border-2 border-purple-500/30 dark:border-purple-400/30 rounded-full text-purple-600 dark:text-purple-400 font-mono text-sm shadow-brutal-sm dark:shadow-none">Research Focus</span>
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-espresso/5 dark:bg-white/5 border-2 border-espresso/30 dark:border-white/20 rounded-full text-espresso/80 dark:text-slate-200 font-mono text-sm shadow-brutal-sm dark:shadow-none">Class of 2027</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="#portfolio" class="btn-brutal inline-flex items-center justify-center">View Academic Projects</a>
+                  <a href="media/resume.pdf" class="btn-brutal-outline inline-flex items-center justify-center">Download Resume</a>
+                </div>
+              </div>
+
+              <div class="flex justify-center lg:justify-end">
+                <div class="relative">
+                  <div class="relative">
+                    <img src="/Joseph_Chamdani.jpg" alt="Joseph Chamdani" class="w-80 h-80 md:w-96 md:h-96 border-4 border-espresso shadow-brutal-lg relative z-10 rounded-full object-cover object-top" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <main id="seo-fallback">
+        <h2>About</h2>
+        <p>Informatics junior at UW. AI, product, and how people actually use them.</p>
+        <p><strong>University of Washington</strong>, BS in Informatics, 2025 to 2027. Junior at the iSchool with a 3.96 GPA and Dean's List honors both quarters so far. Coursework across databases, data structures, client side development, design methods, and research methods.</p>
+        <p><strong>Bellevue College</strong>, AAS, 2023 to 2025, 90 credits transferred to UW. Two years of computer science, math, and physics. Led BC Tech Club as president and organized BC Hacks 2024 with 160+ participants.</p>
+
+        <h3>Beyond the Classroom</h3>
+        <ul>
+          <li><strong>AI Product Intern</strong>, Whitespace Solutions, Jul 2026 to Present. Product and engineering for an AI sales coaching platform: competitive analysis, feature work, pre-launch QA, live demos.</li>
+          <li><strong>AI R&amp;D Intern</strong>, Sector Cybersecurity, Aug 2025 to Feb 2026. Built an AI vulnerability classification system used across pen testing engagements and co-authored 3 published research papers.</li>
+          <li><strong>AI Engineer Intern</strong>, Stockbit, Jul 2024 to Sep 2024. Shipped an OCR KYC pipeline and fraud detection models to production, serving 10K+ documents daily.</li>
+        </ul>
+
+        <h3>Research Interests</h3>
+        <p>Where AI systems meet the people who have to trust them.</p>
+        <ul>
+          <li>AI security and red teaming: finding where language models fail, and building tooling that surfaces those failures automatically</li>
+          <li>Applied AI in education, especially systems that make institutional processes like credit transfer legible to the students they affect</li>
+          <li>Human AI interaction: how people read, trust, and override automated decisions, and what an interface owes them when a model is uncertain</li>
+          <li>Building AI products end to end, from problem framing through evaluation to the parts that break in production</li>
+          <li>Reliability of systems people depend on, including monitoring, failure modes, and the distance between something working and something being watched</li>
+        </ul>
+
+        <h2>Academic Projects</h2>
+        <ul>
+          <li><strong>INFO 200: Transfer Evaluation System.</strong> A student-facing tool that predicts credit transfers to UW based on transcripts, intended majors, and historical data. Generates advisor requests and downloadable reports.
+            <a href="https://github.com/JosephDavisC/INFO-200-Final-Project">Code</a>,
+            <a href="https://info200.joechamdani.cloud/">Demo</a></li>
+          <li><strong>INFO 201: AI Job Market &amp; LLM Growth.</strong> Analyzing how large language model expansion from 2018 to 2024 relates to AI job demand and salaries, using Kaggle datasets.
+            <a href="https://github.com/JosephDavisC/INFO_201_Final_Project">Code</a>,
+            <a href="/projects/INFO_201/final_report_group_2">Report</a></li>
+          <li><strong>INFO 300: Human Judgment vs. AI Alerts.</strong> Research proposal investigating how users interpret and trust scam detection alerts from automated systems versus humans.
+            <a href="/projects/INFO_300/">Proposal</a></li>
+          <li><strong>INFO 340: Planathon.</strong> Hackathon organizer web app consolidating task management, milestone tracking, team coordination, and event info into a single platform.
+            <a href="https://github.com/JosephDavisC/INFO_340">Code</a>,
+            <a href="https://planathon.web.app/">Demo</a></li>
+          <li><strong>INFO 360: UW Nap Spot Finder.</strong> High-fidelity interactive prototype for finding quiet nap spots across UW campus, with an interactive map, noise filters, walking directions, and check-in.
+            <a href="https://github.com/JosephDavisC/INFO_360">Code</a>,
+            <a href="https://info360.joechamdani.com/">Demo</a></li>
+          <li><strong>INFO 380: Course Registration System.</strong> Registration prototype with student, advisor, and admin workflows, real-time search, conflict detection, waitlist management, and enrollment analytics.
+            <a href="https://github.com/JosephDavisC/INFO_380">Code</a>,
+            <a href="https://info380.joechamdani.com">Demo</a></li>
+          <li><strong>INFO 498: Resonance Game Concept.</strong> Team game concept from UX Design for Games: a third person action adventure rooted in Greek mythology, from pitch and mood boards through an interactive character selection prototype.
+            <a href="https://joechamdani.com/archive/info498resonance/">Prototype</a></li>
+          <li><strong>INFO 498: Witcher 3 UX Makeover.</strong> Interactive redesign of The Witcher 3 inventory system, rebuilding shop, repair, and inventory flows around search, sorting, and clearer item comparison.
+            <a href="https://joechamdani.com/archive/info498/">Prototype</a></li>
+        </ul>
+
+        <h2>Coursework</h2>
+        <h3>University of Washington</h3>
+        <p><strong>Spring 2026:</strong> INFO 330 Databases &amp; Data Modeling, INFO 498 UX Design for Games, CSE 373 Data Structures &amp; Algorithms, ARCH 150 Appreciation of Architecture I</p>
+        <p><strong>Winter 2026</strong> (Dean's List, 4.0 quarter)<strong>:</strong> INFO 290 Orientation to Informatics, INFO 340 Client-Side Development, INFO 360 Design Methods, INFO 380 Product &amp; Information Systems Management</p>
+        <p><strong>Autumn 2025</strong> (Dean's List)<strong>:</strong> INFO 200 Intellectual Foundations of Informatics, INFO 201 Foundational Skills for Data Science, INFO 300 Research Methods</p>
+        <h3>Bellevue College</h3>
+        <p>AAS 2023 to 2025, 90 credits transferred. Featured: CS 210/211 Fundamentals of CS I &amp; II, MATH 238 Differential Equations, BA 240 Statistical Analysis. Also completed calculus I through IV, linear algebra, engineering physics I and II, general chemistry, English composition and research writing, sociology, business, and Chinese II.</p>
+
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:jchamd@uw.edu">jchamd@uw.edu</a></li>
+          <li><a href="https://www.linkedin.com/in/joseph-chamdani">LinkedIn</a></li>
+          <li><a href="https://github.com/JosephDavisC">GitHub</a></li>
+          <li><a href="https://orcid.org/0009-0003-3880-8443">ORCID 0009-0003-3880-8443</a></li>
+        </ul>
+        <p><a href="https://joechamdani.com">Personal portfolio: joechamdani.com</a></p>
+      </main>
+      </div>
+      <!-- SEO_FALLBACK_END -->
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

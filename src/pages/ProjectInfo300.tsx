@@ -27,7 +27,7 @@ const ProjectInfo300 = () => {
         <link rel="canonical" href="https://uw.joechamdani.com/projects/INFO_300/" />
       </Helmet>
 
-      <div className="min-h-screen bg-paper dark:bg-[#141B2D] flex items-center justify-center px-6 py-20 transition-colors duration-500">
+      <div className="min-h-screen bg-paper dark:bg-[#141B2D] flex items-center justify-center px-6 py-20 transition-colors duration-200">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
