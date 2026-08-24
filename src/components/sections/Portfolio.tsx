@@ -1,3 +1,4 @@
+import { track } from "@/lib/track";
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
@@ -189,6 +190,7 @@ const Portfolio = () => {
                   {project.github && (
                     <a
                       href={project.github}
+                      onClick={() => track("project-link", { project: project.title, kind: "code" })}
                       className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -200,6 +202,7 @@ const Portfolio = () => {
                   {project.demo && (
                     <a
                       href={project.demo}
+                      onClick={() => track("project-link", { project: project.title, kind: "demo" })}
                       className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
