@@ -9,6 +9,7 @@ import ScrollFromState from "@/components/shared/ScrollToTop";
 
 const Coursework = React.lazy(() => import('@/components/sections/Coursework'));
 const Portfolio = React.lazy(() => import('@/components/sections/Portfolio'));
+const Recognition = React.lazy(() => import('@/components/sections/Recognition'));
 const Contact = React.lazy(() => import('@/components/sections/Contact'));
 const Footer = React.lazy(() => import('@/components/shared/Footer'));
 
@@ -19,13 +20,18 @@ const Index = () => {
         <title>Academic Portfolio | Joseph Davis Chamdani - UW Informatics</title>
       </Helmet>
       <Navbar />
-      <Hero />
-      <About />
+      <main id="main-content" className="outline-none">
+        <Hero />
+        <About />
 
-      <Suspense fallback={<div className="text-espresso/60 dark:text-slate-400 text-center py-10">Loading...</div>}>
-        <Portfolio />
-        <Coursework />
-        <Contact />
+        <Suspense fallback={<div className="text-espresso/60 dark:text-slate-400 text-center py-10">Loading...</div>}>
+          <Recognition />
+          <Portfolio />
+          <Coursework />
+          <Contact />
+        </Suspense>
+      </main>
+      <Suspense fallback={null}>
         <Footer />
       </Suspense>
     </div>
