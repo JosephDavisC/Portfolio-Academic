@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to uw.joechamdani.com, newest first. Dates are commit or merge dates from git history.
+All notable changes to uw.joechamdani.com, newest first. Dates are commit or merge dates from git history, in Pacific time (America/Los_Angeles).
 
 ## Next
 
@@ -8,7 +8,12 @@ Nothing queued yet.
 
 ## [3.0.0] - 2026-10-23 (proposed)
 
-A redesign of the whole site as an academic profile, shipped as [PR #1](https://github.com/JosephDavisC/Portfolio-Academic/pull/1) (merged and deployed 23 Oct 2026).
+A redesign of the whole site as an academic profile. [PR #1](https://github.com/JosephDavisC/Portfolio-Academic/pull/1) merged 22 Oct (6b0dc1e) and was deployed. The version is dated 23 Oct, the day the follow ups landed:
+
+- 3492260 (22 Oct): full Associate in Arts degree name and the current academic resume, also deployed
+- 777e973 and cc46b40 (23 Oct): a 60 fps reel of the site and a rewritten README
+- 7eef91b (23 Oct): the Umami snippet measures page speed
+- [PR #2](https://github.com/JosephDavisC/Portfolio-Academic/pull/2) (23 Oct): this changelog, the build check, and the analytics hash tweak
 
 ### Added
 - Research and Recognition section with a nav link: the three Sector industry research reports and the INFO 300 proposal, honors and awards, teaching and service
@@ -25,7 +30,7 @@ A redesign of the whole site as an academic profile, shipped as [PR #1](https://
 - Facts refreshed: Whitespace dates Jul to Sep 2026, senior standing, Dean's List every quarter, Annual Dean's List 2025 to 2026, mirrored in the noscript fallback and llms.txt
 - Bellevue College degree shown with its full Associate in Arts name, and the resume download replaced with the current academic resume (3492260, 22 Oct 2026)
 - Sharper meta description, mirrored to Open Graph and Twitter; sitemap lastmod 2026-10-23
-- Umami snippet now also measures page speed, with auto pageviews still off so the manual pageview dedupe keeps working (7eef91b, 23 Oct 2026)
+- Umami snippet now also measures page speed, with auto pageviews still off so the manual pageview dedupe keeps working (7eef91b, 23 Oct 2026), and ignores the `#` part of URLs (`data-exclude-hash`, PR #2)
 
 ### Security
 - `npm audit fix` took known advisories from 29 (1 critical) to 13 (0 critical). The 13 left all need Vite or React Router major upgrades, planned together with the main site
@@ -70,8 +75,7 @@ No 2.0.0 entry was ever written, and no commit in this range is marked as a rele
 - Web manifest, code splitting, and a more reliable FTP deploy script (31 Dec 2025)
 - Redesign to the dual theme neobrutalist look of joechamdani.com, with a theme toggle (28 Jan 2026)
 - Security headers (HSTS, CSP, X-Frame-Options, Permissions-Policy) and a status link on the 404 page (14 Feb 2026)
-- Contact form moved from EmailJS to the shared PHP backend at joechamdani.com (Feb 2026, exact commit not recorded separately)
-- INFO 340, INFO 360 and INFO 380 projects added, and the INFO 300 page made dual theme (29 Mar 2026)
+- INFO 340, INFO 360 and INFO 380 projects added, the INFO 300 page made dual theme, and the contact form moved from EmailJS to the shared PHP backend at joechamdani.com (f7e3de9, 29 Mar 2026)
 
 ## [1.0.0] - 2025-11-25
 
@@ -107,6 +111,6 @@ The original entry said 2025-01-25. The first commit and the GitHub release are 
 - Custom scroll components (ScrollProgress, ScrollToTop, ScrollUpButton)
 
 
-[3.0.0]: https://github.com/JosephDavisC/Portfolio-Academic/pull/1
+[3.0.0]: https://github.com/JosephDavisC/Portfolio-Academic/compare/4c6aa5c...v3.0.0
 [2.1.0]: https://github.com/JosephDavisC/Portfolio-Academic/commit/4c6aa5c
 [1.0.0]: https://github.com/JosephDavisC/Portfolio-Academic/releases/tag/v1.0.0
