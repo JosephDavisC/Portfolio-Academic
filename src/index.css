@@ -51,6 +51,14 @@ html.no-transitions *::after {
   transition: none !important;
 }
 
+/* Theme switch: the circle reveal is animated from ThemeContext, so drop the
+   default cross-fade (it would ghost the two themes over each other) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 /* ===============================
    Neobrutalist Component Classes
 ================================= */
@@ -100,14 +108,15 @@ html.no-transitions *::after {
 
   /* Primary Button */
   .btn-brutal {
-    @apply px-6 py-3 bg-court text-paper font-semibold border-2 border-espresso rounded-lg;
+    /* espresso on court green is 5.4:1; paper on it was 2.3:1 */
+    @apply px-6 py-3 bg-court text-espresso font-semibold border-2 border-espresso rounded-lg;
     box-shadow: 2px 2px 0px 0px #3D2B1F;
     transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .btn-brutal:hover {
-    box-shadow: 3px 3px 0px 0px #3D2B1F;
-    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px 0px #3D2B1F;
+    transform: translate(-2px, -2px);
   }
 
   .btn-brutal:active {
@@ -138,8 +147,8 @@ html.no-transitions *::after {
 
   .btn-brutal-outline:hover {
     @apply bg-espresso text-paper;
-    box-shadow: 3px 3px 0px 0px #3D2B1F;
-    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px 0px #3D2B1F;
+    transform: translate(-2px, -2px);
   }
 
   /* Outline Button - Dark Mode */
@@ -410,3 +419,86 @@ html.no-transitions *::after {
   .cursor-jo-thumb { cursor: url("/cursors/jo-thumb.png") 16 16, pointer; }
 }
 
+
+/* ===============================
+   WCAG AA contrast (same fixes as joechamdani.com)
+   Text only: borders and fills keep their tints.
+================================= */
+
+/* Buttons and pills that pair paper text with court green (2.3:1) */
+html:not(.dark) .bg-court.text-paper {
+  color: #3D2B1F;
+}
+
+/* Faint espresso labels (dates, captions, tags) read at 2.9 to 3.8:1 */
+html:not(.dark) .text-espresso\/40,
+html:not(.dark) .text-espresso\/50,
+html:not(.dark) .text-espresso\/60 {
+  color: rgb(61 43 31 / 0.72);
+}
+
+/* UW course codes and tags in purple read at 3.5 to 4.3:1 on paper; purple-700 is 6.5:1 */
+html:not(.dark) .text-purple-500,
+html:not(.dark) .text-purple-600 {
+  color: #7e22ce;
+}
+
+/* Bellevue College blue text is 2.4:1 on paper; a deeper shade of the same blue is 5.4:1 */
+html:not(.dark) .text-\[\#00AEEF\] {
+  color: #006d96;
+}
+
+/* Dark mode: slate-500 and slate-600 text sit at 2.9 to 3.6:1; lift to slate-400 */
+html.dark .dark\:text-slate-500,
+html.dark .dark\:text-slate-600 {
+  color: #94a3b8;
+}
+
+/* Blue chips in dark mode (blue text on a 20% blue fill) read at 4.2:1 */
+html.dark .dark\:bg-\[\#60A5FA\]\/20.dark\:text-\[\#60A5FA\] {
+  color: #93C5FD;
+}
+
+/* An underline that slides in from the left on hover. .nav-link previews the
+   active-section bar; .link-underline is for quiet text links. */
+.nav-link,
+.link-underline {
+  position: relative;
+}
+.nav-link::after,
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-radius: 9999px;
+  background: #4CBB17;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nav-link::after { bottom: -4px; height: 2px; }
+.link-underline::after { bottom: -3px; height: 2px; }
+.nav-link:hover::after,
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+/* the active link already shows its own bar */
+.nav-link[aria-current="page"]::after { display: none; }
+.dark .nav-link::after,
+.dark .link-underline::after {
+  background: #60A5FA;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::after,
+  .link-underline::after { transition: none; }
+}
+
+/* Long lists inside a card (the coursework ledger) stay put on hover; the rows inside
+   carry the hover state instead, so the whole quarter doesn't jump under the cursor. */
+.card-static:hover,
+.card-static:active,
+.dark .card-static:hover {
+  transform: none;
+}

@@ -9,11 +9,11 @@ export function ThemeToggle() {
     <motion.button
       onClick={toggleTheme}
       className={`
-        relative w-16 h-8 rounded-full
+        group relative w-16 h-8 rounded-full
         border-2 flex items-center px-1
         ${isDark
-          ? 'bg-slate-900 border-slate-700'
-          : 'bg-paper border-espresso/30'
+          ? 'bg-slate-900 border-slate-700 hover:border-[#60A5FA]/60'
+          : 'bg-paper border-espresso/30 hover:border-espresso/70'
         }
       `}
       whileTap={{ scale: 0.95 }}
@@ -31,7 +31,9 @@ export function ThemeToggle() {
         />
       </div>
 
-      {/* Animated thumb */}
+      {/* Animated thumb, in a wrapper that leans it toward the other side on hover (the
+          wrapper moves, not the thumb, so it never fights framer's x) */}
+      <span className={`relative z-10 flex transition-transform duration-200 motion-reduce:transition-none ${isDark ? 'group-hover:-translate-x-[3px]' : 'group-hover:translate-x-[3px]'}`}>
       <motion.div
         animate={{ x: isDark ? 32 : 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
@@ -54,6 +56,7 @@ export function ThemeToggle() {
           )}
         </motion.div>
       </motion.div>
+      </span>
     </motion.button>
   );
 }

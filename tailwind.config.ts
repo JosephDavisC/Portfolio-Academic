@@ -31,7 +31,7 @@ export default {
 				court: {
 					DEFAULT: '#4CBB17',
 					light: '#6DD035',
-					dark: '#3A9012',
+					dark: '#2A7310', // 4.6:1 on the court/15 to /20 chips; #3A9012 was 3.2
 				},
 				espresso: {
 					DEFAULT: '#3D2B1F',
