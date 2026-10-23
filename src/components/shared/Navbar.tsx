@@ -10,6 +10,7 @@ type NavItem = { name: string; href: `#${string}`; short?: string };
 const links: NavItem[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Research", href: "#research" },
   { name: "Academic Projects", href: "#portfolio", short: "Projects" },
   { name: "Coursework", href: "#coursework" },
   { name: "Contact", href: "#contact" },
@@ -131,7 +132,7 @@ export default function Navbar() {
             <li key={link.href} className="relative">
               <Link
                 to={`/${link.href}`}
-                className="px-1 py-1 transition-colors hover:text-court-dark dark:hover:text-[#60A5FA]"
+                className="nav-link px-1 py-1 transition-colors hover:text-court-dark dark:hover:text-[#60A5FA]"
               >
                 {link.short || link.name}
               </Link>
@@ -144,7 +145,7 @@ export default function Navbar() {
             <a
               href={link.href}
               onClick={handleNavClick(link.href)}
-              className={`relative px-1 py-1 transition-colors ${
+              className={`nav-link relative px-1 py-1 transition-colors ${
                 isActive ? "text-court-dark dark:text-[#60A5FA]" : "hover:text-court-dark dark:hover:text-[#60A5FA]"
               }`}
               aria-current={isActive ? "page" : undefined}
@@ -167,6 +168,21 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-paper/90 dark:bg-slate-900/70 backdrop-blur-lg border-b border-espresso/10 dark:border-white/10 shadow-md transition-colors duration-200">
+      {/* First focus stop on every page: jumps keyboard users past the nav */}
+      <a
+        href="#main-content"
+        onClick={(e) => {
+          e.preventDefault();
+          const target = (document.getElementById("main-content") ?? document.querySelector("main")) as HTMLElement | null;
+          if (!target) return;
+          target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+          target.scrollIntoView({ block: "start" });
+        }}
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[110] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-paper focus:text-espresso focus:font-semibold focus:border-2 focus:border-espresso focus:shadow-brutal-sm dark:focus:bg-slate-900 dark:focus:text-slate-100 dark:focus:border-[#60A5FA]/50 dark:focus:shadow-none"
+      >
+        Skip to content
+      </a>
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-espresso dark:text-white">
         {/* Logo */}
         <a href="#home" onClick={handleNavClick("#home")} className="flex items-center">

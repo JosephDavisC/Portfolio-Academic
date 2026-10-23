@@ -1,6 +1,6 @@
 # Joseph Davis Chamdani, Academic Portfolio
 
-> Academic portfolio of Joseph Davis Chamdani, an Informatics student at the University of Washington (Class of 2027) based in Seattle. This site covers his university coursework, academic projects, and research: UW Informatics as a junior with a 3.96 GPA and Dean's List honors, after an AAS at Bellevue College with 90 credits transferred. His personal and professional portfolio is a separate site at https://joechamdani.com.
+> Academic portfolio of Joseph Davis Chamdani, an Informatics student at the University of Washington (Class of 2027) based in Seattle. This site covers his university coursework, academic projects, and research: UW Informatics as a senior with a 3.96 GPA, on the Dean's List every quarter, after an AAS at Bellevue College with 90 credits transferred. His personal and professional portfolio is a separate site at https://joechamdani.com.
 
 ## Identity
 
@@ -20,14 +20,15 @@ This site represents Joseph Davis Chamdani, the University of Washington Informa
 
 ## Education
 
-- University of Washington Information School, BS Informatics, 2025 to 2027. Junior, 3.96 GPA, Dean's List in both quarters completed so far.
+- University of Washington Information School, BS Informatics, 2025 to 2027. Senior, 3.96 GPA, Dean's List every quarter and Annual Dean's List 2025 to 2026.
 - Bellevue College, AAS, 2023 to 2025, 90 credits transferred to UW. Two years of computer science, math, and physics. President of BC Tech Club and organizer of BC Hacks 2024 with 160+ participants.
 
 ## Coursework
 
 University of Washington, by quarter:
 
-- Spring 2026: INFO 330 Databases and Data Modeling, INFO 498 UX Design for Games, CSE 373 Data Structures and Algorithms, ARCH 150 Appreciation of Architecture I.
+- Autumn 2026 (in progress): INFO 351 Information Ethics and Policy, INFO 356 Moral Reasoning and Interaction Design, INFO 370 Core Methods in Data Science, ARCH 151 Appreciation of Architecture II.
+- Spring 2026 (Dean's List): INFO 330 Databases and Data Modeling, INFO 498 UX Design for Games, CSE 373 Data Structures and Algorithms, ARCH 150 Appreciation of Architecture I.
 - Winter 2026 (Dean's List, 4.0 quarter): INFO 290 Orientation to Informatics, INFO 340 Client-Side Development, INFO 360 Design Methods, INFO 380 Product and Information Systems Management.
 - Autumn 2025 (Dean's List): INFO 200 Intellectual Foundations of Informatics, INFO 201 Foundational Skills for Data Science, INFO 300 Research Methods.
 
@@ -56,10 +57,22 @@ Where AI systems meet the people who have to trust them.
 
 The INFO 300 proposal is the clearest example of this in his coursework: it studies how people trust AI scam alerts compared to human ones.
 
+## Research and recognition
+
+Research and writing (Sector's are industry research reports, not peer reviewed):
+- The Hidden Dangers of AI in Cybersecurity (2026), written by Joseph and published by Sector under its SectorONE research brand: https://sector.co.id/AIHiddenDangers
+- Top 50 Indonesian Companies Leaked on the Dark Web (2025), Sector: https://sector.co.id/2025LeakedReport
+- AI vs Human Hacker: Who Wins? (2025), Sector: https://sector.co.id/AIvsHumanResearch
+- Human Judgment vs. AI Alerts: Exploring Trust in Automated Scam Detection Systems (2025), INFO 300 team research proposal: https://uw.joechamdani.com/projects/INFO_300/
+
+Honors: Annual Dean's List 2025 to 2026 and Dean's List every UW quarter; Alan R. Spence Transfer Support Fund, UW merit scholarship (2026); 1st place, Anthropic Claude Hackathon at UW (2025); Associate in Arts With High Honors, Bellevue College, GPA 3.84 (2025); Norman and Camille Stromer Scholarship, Bellevue College Foundation (2024 to 2025).
+
+Teaching and service: Technical Officer, SWECC at UW (2026 to present); invited lecture on running BC Hacks 2024 for 20+ visiting Korean exchange students (2024); organizer of BC Hacks 2024 (160+ participants); President of Bellevue College Tech Club (2024 to 2025, membership 20 to 35+, 15+ workshops); Mentor, Bellevue College Tech Club (2023 to 2024); volunteer teacher at Komunitas Sahabat, Jakarta (2023).
+
 ## Beyond the classroom
 
-- Whitespace Solutions, AI Product Intern, Jul 2026 to present. Product and engineering for an AI sales coaching platform: competitive analysis, feature work, pre-launch QA, live demos.
-- Sector Cybersecurity, AI Research and Development Intern, Aug 2025 to Feb 2026. Built an AI vulnerability classification system used across penetration testing engagements and co-authored three published research papers.
+- Whitespace Solutions, AI Product Intern, Jul 2026 to Sep 2026. Product and engineering for an AI sales coaching platform: competitive analysis, feature work, pre-launch QA, live demos.
+- Sector Cybersecurity, AI Research and Development Intern, Aug 2025 to Feb 2026. Built an AI vulnerability classification system used across penetration testing engagements and wrote three research reports that Sector published under its SectorONE research brand.
 - Stockbit, AI Engineer Intern, Jul 2024 to Sep 2024. Shipped an OCR KYC pipeline and fraud detection models to production, serving 10K+ documents daily.
 
 Full professional history is on the personal portfolio at https://joechamdani.com/experience/.

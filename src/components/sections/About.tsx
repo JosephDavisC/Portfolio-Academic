@@ -2,20 +2,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Briefcase, Lightbulb } from "lucide-react";
 
-const stats = ["GPA 3.96", "Dean's List x2", "90 Credits Transferred", "Class of 2027"];
+const stats = ["GPA 3.96", "Dean's List every quarter", "90 Credits Transferred", "Class of 2027"];
 
 const roles = [
   {
     role: "AI Product Intern",
     company: "Whitespace Solutions",
-    dates: "Jul 2026 to Present",
+    dates: "Jul 2026 to Sep 2026",
     blurb: "Product and engineering for an AI sales coaching platform: competitive analysis, feature work, pre-launch QA, live demos."
   },
   {
     role: "AI R&D Intern",
     company: "Sector Cybersecurity",
     dates: "Aug 2025 to Feb 2026",
-    blurb: "Built an AI vulnerability classification system used across pen testing engagements and co-authored 3 published research papers."
+    blurb: "Built an AI vulnerability classification system used across pen testing engagements and wrote 3 research reports that Sector published."
   },
   {
     role: "AI Engineer Intern",
@@ -50,7 +50,7 @@ export default function About() {
             <span className="underline-scribble">iSchool</span>
           </h2>
           <p className="text-espresso/60 dark:text-slate-300 text-xl max-w-3xl mx-auto leading-relaxed font-mono">
-            Informatics junior @ UW. AI, product, and how people actually use them.
+            Informatics senior @ UW. AI, product, and how people actually use them.
           </p>
           <div className="flex flex-wrap justify-center gap-2 mt-7">
             {stats.map((stat) => (
@@ -92,7 +92,7 @@ export default function About() {
                 </div>
                 <p className="font-mono text-xs text-espresso/50 dark:text-slate-400 mb-2">BS in Informatics · 2025 to 2027</p>
                 <p className="text-espresso/70 dark:text-slate-300 text-[15px] leading-relaxed max-w-[60ch]">
-                  Junior at the iSchool with a 3.96 GPA and Dean's List honors both quarters so far. Coursework across databases, data structures, client side development, design methods, and research methods.
+                  Senior at the iSchool with a 3.96 GPA, on the Dean's List every quarter and the Annual Dean's List for 2025 to 2026. Coursework across databases, data structures, client side development, design methods, and research methods.
                 </p>
               </li>
               <li className="pl-8 relative">
