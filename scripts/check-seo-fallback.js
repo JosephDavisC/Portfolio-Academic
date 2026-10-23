@@ -84,11 +84,16 @@ if (!read('vite.config.ts').includes('stripSeoFallbackInDev()')) {
 for (const marker of ['SEO_FALLBACK_START', 'SEO_FALLBACK_END']) {
   if (!fallback.includes(marker)) failures.push({ label: 'coupling', needle: marker, missingFrom: 'index.html' });
 }
-const heroInitials = (read('src/components/sections/Hero.tsx').match(/initial=\{false\}/g) || []).length;
-if (heroInitials < 4) {
+// Every hero motion element must start with initial={false}: index.html paints a static
+// copy of the hero first, so an entry animation would blink it out and back. Elements
+// with exit= are the hover overlay, which only mounts on interaction.
+const heroSrc = read('src/components/sections/Hero.tsx').replace(/\/\*[\s\S]*?\*\//g, '');
+const heroTags = [...heroSrc.matchAll(/<motion\.\w+\b([\s\S]*?)>/g)].map((m) => m[1]).filter((props) => !props.includes('exit='));
+const animatedIn = heroTags.filter((props) => !props.includes('initial={false}'));
+if (heroTags.length === 0 || animatedIn.length) {
   failures.push({
     label: 'coupling',
-    needle: `Hero initial={false} on 4 blocks (found ${heroInitials}); restoring them makes the hero blink over the static copy`,
+    needle: `Hero initial={false} on every entry block (${animatedIn.length} of ${heroTags.length} animate in); animating in makes the hero blink over the static copy`,
     missingFrom: 'Hero.tsx',
   });
 }
