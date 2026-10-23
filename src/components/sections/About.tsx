@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Briefcase, Lightbulb } from "lucide-react";
 
-const stats = ["GPA 3.96", "Dean's List every quarter", "90 Credits Transferred", "Class of 2027"];
+const stats = ["GPA 3.96", "Dean's List every quarter", "Class of 2027"];
 
 const roles = [
   {

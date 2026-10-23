@@ -4,7 +4,7 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 ## Next
 
-Nothing queued yet.
+- The About section's badges drop "90 Credits Transferred" (Joseph's call, 23 Oct 2026).
 
 ## [3.0.0] - 2026-10-23
 
