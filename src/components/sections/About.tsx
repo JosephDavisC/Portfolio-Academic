@@ -102,7 +102,7 @@ export default function About() {
                 <div className="flex items-baseline gap-3 flex-wrap mb-1">
                   <h4 className="text-lg font-heading font-semibold text-espresso dark:text-white">Bellevue College</h4>
                 </div>
-                <p className="font-mono text-xs text-espresso/50 dark:text-slate-400 mb-2">AAS · 2023 to 2025 · 90 credits to UW</p>
+                <p className="font-mono text-xs text-espresso/50 dark:text-slate-400 mb-2">Associate in Arts (DTA) · 2023 to 2025 · 90 credits to UW</p>
                 <p className="text-espresso/70 dark:text-slate-300 text-[15px] leading-relaxed max-w-[60ch]">
                   Two years of computer science, math, and physics. Led BC Tech Club as president and organized BC Hacks 2024 with 160+ participants.
                 </p>

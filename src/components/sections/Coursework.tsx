@@ -527,7 +527,7 @@ export default function Coursework() {
             </div>
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-espresso dark:text-white leading-tight">Bellevue College</h3>
-              <p className="font-mono text-sm text-[#006d96] dark:text-sky-300">AAS · 2023 to 2025 · 90 credits transferred to UW</p>
+              <p className="font-mono text-sm text-[#006d96] dark:text-sky-300">Associate in Arts (Direct Transfer Agreement) · 2023 to 2025 · 90 credits transferred to UW</p>
             </div>
           </div>
 

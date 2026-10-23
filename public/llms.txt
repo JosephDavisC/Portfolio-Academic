@@ -1,6 +1,6 @@
 # Joseph Davis Chamdani, Academic Portfolio
 
-> Academic portfolio of Joseph Davis Chamdani, an Informatics student at the University of Washington (Class of 2027) based in Seattle. This site covers his university coursework, academic projects, and research: UW Informatics as a senior with a 3.96 GPA, on the Dean's List every quarter, after an AAS at Bellevue College with 90 credits transferred. His personal and professional portfolio is a separate site at https://joechamdani.com.
+> Academic portfolio of Joseph Davis Chamdani, an Informatics student at the University of Washington (Class of 2027) based in Seattle. This site covers his university coursework, academic projects, and research: UW Informatics as a senior with a 3.96 GPA, on the Dean's List every quarter, after an Associate in Arts (Direct Transfer Agreement) at Bellevue College with 90 credits transferred. His personal and professional portfolio is a separate site at https://joechamdani.com.
 
 ## Identity
 
@@ -21,7 +21,7 @@ This site represents Joseph Davis Chamdani, the University of Washington Informa
 ## Education
 
 - University of Washington Information School, BS Informatics, 2025 to 2027. Senior, 3.96 GPA, Dean's List every quarter and Annual Dean's List 2025 to 2026.
-- Bellevue College, AAS, 2023 to 2025, 90 credits transferred to UW. Two years of computer science, math, and physics. President of BC Tech Club and organizer of BC Hacks 2024 with 160+ participants.
+- Bellevue College, Associate in Arts (Direct Transfer Agreement) With High Honors, GPA 3.84, 2023 to 2025, 90 credits transferred to UW. Two years of computer science, math, and physics. President of BC Tech Club and organizer of BC Hacks 2024 with 160+ participants.
 
 ## Coursework
 
