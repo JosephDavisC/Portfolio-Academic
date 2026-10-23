@@ -6,7 +6,7 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 Nothing queued yet.
 
-## [3.0.0] - 2026-10-23 (proposed)
+## [3.0.0] - 2026-10-23
 
 A redesign of the whole site as an academic profile. [PR #1](https://github.com/JosephDavisC/Portfolio-Academic/pull/1) merged 22 Oct (6b0dc1e) and was deployed. The version is dated 23 Oct, the day the follow ups landed:
 
