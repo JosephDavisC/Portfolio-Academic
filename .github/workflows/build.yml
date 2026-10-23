@@ -1,0 +1,39 @@
+# Build check for pull requests and pushes to main.
+# Runs the same build as a deploy (prebuild SEO fallback guard, then vite build)
+# plus a TypeScript check, since vite build does not type check.
+# It never deploys: FTP credentials (scripts/ftp-config.json) are gitignored and not needed here.
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      # No .nvmrc or engines field in the repo, so Node 22.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit -p tsconfig.app.json
+
+      # prebuild runs scripts/check-seo-fallback.js, then vite build.
+      - name: Build
+        run: npm run build
