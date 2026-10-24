@@ -4,7 +4,12 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 ## Next
 
-- The About section's badges drop "90 Credits Transferred" (Joseph's call, 23 Oct 2026).
+Nothing yet.
+
+## [3.0.1] - 2026-10-23
+
+### Changed
+- The About section's badges drop "90 Credits Transferred" (565aa65)
 
 ## [3.0.0] - 2026-10-23
 
@@ -111,6 +116,7 @@ The original entry said 2025-01-25. The first commit and the GitHub release are 
 - Custom scroll components (ScrollProgress, ScrollToTop, ScrollUpButton)
 
 
+[3.0.1]: https://github.com/JosephDavisC/Portfolio-Academic/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/JosephDavisC/Portfolio-Academic/compare/4c6aa5c...v3.0.0
 [2.1.0]: https://github.com/JosephDavisC/Portfolio-Academic/commit/4c6aa5c
 [1.0.0]: https://github.com/JosephDavisC/Portfolio-Academic/releases/tag/v1.0.0
