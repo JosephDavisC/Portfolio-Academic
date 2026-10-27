@@ -5,7 +5,11 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 ## Next
 
 ### Changed
-- Build tooling: Vite 5 to 6.4.5. npm audit goes from 6 findings to 4 (the Vite and esbuild dev server advisories are cleared). The built site is unchanged.
+- Build tooling: Vite 5.4.21 to 6.4.4, which brings esbuild 0.21.5 to 0.25.12. The site looks the same (screenshots match in both themes at 1280 and 390); asset hashes change and the minified CSS loses 14 bytes of whitespace
+- Deploy script uploads every file first, with HTML last, and removes superseded asset chunks only after all uploads succeed. It used to delete the whole live assets folder before uploading, which left the site blank until the upload caught up. If an asset fails, the old HTML stays live and nothing is deleted
+
+### Security
+- npm audit goes from 6 findings (3 high) to 4 (2 high): the Vite and esbuild dev server advisories are cleared. The 4 left need majors: basic-ftp 6, zod 4, React Router 7
 
 ## [3.0.1] - 2026-10-23
 
