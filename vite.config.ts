@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           // Core React - ~140KB
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-react': ['react', 'react-dom', 'react-router'],
           // Animation & UI - ~100KB
           'vendor-ui': ['framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-tooltip', '@radix-ui/react-tabs', '@radix-ui/react-accordion'],
           // Utilities - ~50KB

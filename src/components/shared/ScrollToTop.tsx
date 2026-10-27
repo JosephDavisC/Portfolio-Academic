@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 
 const HEADER_OFFSET = 88; // keep in sync with your navbar height
 

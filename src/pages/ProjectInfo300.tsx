@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
 
 const ProjectInfo300 = () => {
