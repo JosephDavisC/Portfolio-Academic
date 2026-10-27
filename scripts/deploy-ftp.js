@@ -117,6 +117,29 @@ async function cleanupTempFiles() {
   }
 }
 
+// Delete files in the remote assets folder that are not in this build
+async function removeStaleAssets(files) {
+  const current = new Set(files.map(f => f.remotePath));
+  try {
+    await client.cd(config.remoteRoot);
+    const remote = await client.list('assets');
+    const stale = remote.filter(f => f.isFile && !current.has(`assets/${f.name}`));
+    if (stale.length > 0) {
+      console.log(`[*] Removing ${stale.length} superseded asset files...`);
+      for (const f of stale) {
+        try {
+          await client.remove(`assets/${f.name}`);
+        } catch (e) {
+          // Ignore: a leftover chunk is harmless
+        }
+      }
+      console.log('[+] Old assets cleared!');
+    }
+  } catch (error) {
+    console.log(`[!] Could not clean old assets: ${error.message}`);
+  }
+}
+
 // Upload a single file with retry logic
 async function uploadFileWithRetry(localPath, remotePath, retries = MAX_RETRIES) {
   const remoteDir = path.dirname(remotePath);
@@ -186,22 +209,15 @@ async function deploy() {
     // Clean up any leftover temp files from previous failed uploads
     await cleanupTempFiles();
 
-    // Delete the old assets folder to clear cache
-    console.log('[*] Clearing old assets folder...');
-    try {
-      await client.removeDir('assets');
-      console.log('[+] Old assets cleared!');
-    } catch (error) {
-      console.log('[!] No existing assets folder');
-    }
-
     // Get all files to upload
     const localDistPath = path.join(__dirname, '..', 'dist');
     const files = getAllFiles(localDistPath);
     const totalFiles = files.length;
 
-    // Sort files by size (smallest first) for better reliability
-    files.sort((a, b) => a.size - b.size);
+    // Sort files by size (smallest first) for better reliability, with HTML
+    // last so no page goes live before the assets it points at.
+    const isHtml = (f) => f.remotePath.endsWith('.html');
+    files.sort((a, b) => (isHtml(a) - isHtml(b)) || (a.size - b.size));
 
     console.log(`\n[*] Total files to upload: ${totalFiles}`);
     console.log(`[*] Using ${MAX_RETRIES} retry attempts per file`);
@@ -216,6 +232,12 @@ async function deploy() {
     // Upload files one at a time
     for (const file of files) {
       const filename = path.basename(file.remotePath);
+      // If an asset failed, keep the old HTML live: it still points at the old
+      // chunks, which stay on the server.
+      if (failedFiles.length > 0 && isHtml(file)) {
+        failedFiles.push(`${file.remotePath} (skipped, an asset failed)`);
+        continue;
+      }
       progressBar.update(uploadedFiles, { filename: filename.substring(0, 30) });
 
       try {
@@ -230,6 +252,14 @@ async function deploy() {
 
     // Stop progress bar
     progressBar.stop();
+
+    // Remove superseded asset chunks only after every upload succeeded. The old
+    // flow deleted the whole assets folder first, so the live HTML pointed at
+    // missing chunks (a blank page) until the upload caught up, and a failed
+    // upload left the site broken. If anything failed, keep the old chunks.
+    if (failedFiles.length === 0) {
+      await removeStaleAssets(files);
+    }
 
     // Report results
     if (failedFiles.length > 0) {
