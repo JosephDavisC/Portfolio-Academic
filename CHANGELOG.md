@@ -4,7 +4,8 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 ## Next
 
-Nothing yet.
+### Changed
+- Build tooling: Vite 5 to 6.4.5. npm audit goes from 6 findings to 4 (the Vite and esbuild dev server advisories are cleared). The built site is unchanged.
 
 ## [3.0.1] - 2026-10-23
 
