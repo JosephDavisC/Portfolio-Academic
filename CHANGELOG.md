@@ -4,7 +4,11 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 ## Next
 
-Nothing yet.
+### Changed
+- Runtime majors: `react-router-dom` 6.30.6 is replaced by `react-router` 7.18.4, `zod` 3.25.76 to 4.6.7 with `@hookform/resolvers` 3.10.0 to 5.9.2, and `basic-ftp` 5.3.1 to 6.2.3. Routes, links, the 404 page and the contact form messages behave the same; the deploy script needs no changes. The contact chunk grows by about 12 kB gzip and `vendor-react` by about 6 kB gzip
+
+### Security
+- npm audit goes from 4 findings (2 high, 2 moderate) to 0
 
 ## [3.0.2] - 2026-10-27
 
