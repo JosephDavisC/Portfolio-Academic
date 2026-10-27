@@ -4,6 +4,10 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 ## Next
 
+Nothing yet.
+
+## [3.0.2] - 2026-10-27
+
 ### Changed
 - Build tooling: Vite 5.4.21 to 6.4.4, which brings esbuild 0.21.5 to 0.25.12. The site looks the same (screenshots match in both themes at 1280 and 390); asset hashes change and the minified CSS loses 14 bytes of whitespace
 - Deploy script uploads every file first, with HTML last, and removes superseded asset chunks only after all uploads succeed. It used to delete the whole live assets folder before uploading, which left the site blank until the upload caught up. If an asset fails, the old HTML stays live and nothing is deleted
@@ -121,6 +125,7 @@ The original entry said 2025-01-25. The first commit and the GitHub release are 
 - Custom scroll components (ScrollProgress, ScrollToTop, ScrollUpButton)
 
 
+[3.0.2]: https://github.com/JosephDavisC/Portfolio-Academic/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/JosephDavisC/Portfolio-Academic/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/JosephDavisC/Portfolio-Academic/compare/4c6aa5c...v3.0.0
 [2.1.0]: https://github.com/JosephDavisC/Portfolio-Academic/commit/4c6aa5c
