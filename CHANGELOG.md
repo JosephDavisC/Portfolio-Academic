@@ -4,6 +4,10 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 ## Next
 
+Nothing yet.
+
+## [3.1.0] - 2026-10-27
+
 ### Changed
 - Runtime majors: `react-router-dom` 6.30.6 is replaced by `react-router` 7.18.4, `zod` 3.25.76 to 4.6.7 with `@hookform/resolvers` 3.10.0 to 5.9.2, and `basic-ftp` 5.3.1 to 6.2.3. Routes, links, the 404 page and the contact form messages behave the same; the deploy script needs no changes. The contact schema moves to `zod/mini` with the same email rule, so the Contact chunk shrinks from 26.5 kB to 20.1 kB gzip; `vendor-react` grows from 7.6 kB to 13.7 kB gzip. Every route is bundled up front, so React Router 7 running navigations as transitions changes nothing visible here
 - INFO 300 "Back to Portfolio" now lands on the Portfolio section instead of the top of the home page
@@ -130,6 +134,7 @@ The original entry said 2025-01-25. The first commit and the GitHub release are 
 - Custom scroll components (ScrollProgress, ScrollToTop, ScrollUpButton)
 
 
+[3.1.0]: https://github.com/JosephDavisC/Portfolio-Academic/compare/v3.0.2...v3.1.0
 [3.0.2]: https://github.com/JosephDavisC/Portfolio-Academic/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/JosephDavisC/Portfolio-Academic/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/JosephDavisC/Portfolio-Academic/compare/4c6aa5c...v3.0.0
