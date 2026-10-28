@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import cliProgress from 'cli-progress';
-import { execFile } from 'child_process';
+import { execFile, execFileSync } from 'child_process';
 import os from 'os';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +26,11 @@ try {
   console.error('Error: ftp-config.json not found!');
   console.log('\nPlease create scripts/ftp-config.json with your FTP credentials');
   process.exit(1);
+}
+
+// The password lives in 1Password (op:// pointer in ftp-config.json); fetch it now (Touch ID once per session).
+if (String(config.password).startsWith('op://')) {
+  config.password = execFileSync('op', ['read', '-n', config.password], { encoding: 'utf8' });
 }
 
 // Configuration
