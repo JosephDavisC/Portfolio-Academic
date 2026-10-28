@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
 
 const ProjectInfo300 = () => {
@@ -114,7 +114,8 @@ const ProjectInfo300 = () => {
             </a>
 
             <Link
-              to="/#portfolio"
+              to="/"
+              state={{ scrollTo: "portfolio" }}
               className="btn-brutal-outline inline-flex items-center justify-center gap-2"
             >
               <ArrowLeft className="w-5 h-5" />
