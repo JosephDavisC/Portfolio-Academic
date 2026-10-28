@@ -114,7 +114,8 @@ const ProjectInfo300 = () => {
             </a>
 
             <Link
-              to="/#portfolio"
+              to="/"
+              state={{ scrollTo: "portfolio" }}
               className="btn-brutal-outline inline-flex items-center justify-center gap-2"
             >
               <ArrowLeft className="w-5 h-5" />
