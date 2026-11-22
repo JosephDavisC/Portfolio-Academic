@@ -6,6 +6,21 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 Nothing yet.
 
+## [3.2.0] - 2026-11-22
+
+### Changed
+- Calmer, more academic design. Section headings sit left with a rule and a short intro instead of a centered title and subtitle. Dark mode drops the glows, blurred color blobs and frosted glass for solid surfaces
+- Hero: the stats row becomes one sentence (3.96 GPA, Dean's List every quarter), the floating degree badge becomes a caption under the photo, and the background blobs are gone
+- About: no icon circles or repeated stat pills; The Journey and Beyond the Classroom are open columns, research interests are a numbered list, and the INFO 300 proposal is one clickable card
+- Projects: real screenshots of each demo (and the INFO 201 chart, the INFO 300 first page) replace the purple icon tiles; tags are plain text and links are quiet Demo and Code links
+- Coursework: course codes are colored text instead of pills, the four stat boxes become one sentence, and the area filter is a row of underline tabs
+- Navbar, scroll bar and back to top button are solid, with no blur or glow
+
+### Added
+- UW scholar profile card under Honors and awards, with the photo and quote from the UW Office of Merit Scholarships profile, linking to it
+- The Spence scholarship row links to the UW scholar profile, and the Claude Hackathon row links to the case study on joechamdani.com
+- The UW profile is in the structured data (`subjectOf`), the no-JS honors list and `llms.txt`
+
 ## [3.1.0] - 2026-10-27
 
 ### Changed
