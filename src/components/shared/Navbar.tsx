@@ -167,7 +167,7 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-paper/90 dark:bg-slate-900/70 backdrop-blur-lg border-b border-espresso/10 dark:border-white/10 shadow-md transition-colors duration-200">
+    <header className="fixed top-0 left-0 w-full z-50 bg-paper dark:bg-[#141B2D] border-b border-espresso/10 dark:border-white/10 transition-colors duration-200">
       {/* First focus stop on every page: jumps keyboard users past the nav */}
       <a
         href="#main-content"
@@ -217,7 +217,7 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <ul className="md:hidden bg-paper/95 dark:bg-slate-900/90 backdrop-blur-lg px-6 py-6 space-y-4 text-center border-t border-espresso/10 dark:border-white/10 animate-fade-in-down">
+        <ul className="md:hidden bg-paper dark:bg-[#141B2D] px-6 py-6 space-y-4 text-center border-t border-espresso/10 dark:border-white/10 animate-fade-in-down">
           {links.map((link) =>
             isHome ? (
               <li key={link.href}>
