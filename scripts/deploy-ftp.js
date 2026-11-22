@@ -271,18 +271,18 @@ async function deploy() {
       console.log(`\n[!] Deployment completed with ${failedFiles.length} failed files:`);
       failedFiles.forEach(f => console.log(`    - ${f}`));
       console.log('\n[*] You may need to upload these files manually.');
-      ntfyPush('uw.joechamdani.com deploy incomplete', `${failedFiles.length} files failed to upload`, 'high');
+      ntfyPush('academic.joechamdani.com deploy incomplete', `${failedFiles.length} files failed to upload`, 'high');
       process.exit(1);
     } else {
       console.log('\n[+] All files uploaded successfully!');
       console.log('[+] Deployment complete!\n');
-      ntfyPush('uw.joechamdani.com deployed', 'All files uploaded via FTP');
+      ntfyPush('academic.joechamdani.com deployed', 'All files uploaded via FTP');
     }
 
   } catch (error) {
     progressBar.stop();
     console.error('\n[X] Deployment failed:', error.message);
-    ntfyPush('uw.joechamdani.com deploy FAILED', error.message, 'high');
+    ntfyPush('academic.joechamdani.com deploy FAILED', error.message, 'high');
     process.exit(1);
   } finally {
     client.close();

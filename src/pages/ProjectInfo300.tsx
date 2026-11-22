@@ -12,19 +12,19 @@ const ProjectInfo300 = () => {
 
         {/* Open Graph / Facebook / WhatsApp */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://uw.joechamdani.com/projects/INFO_300/" />
+        <meta property="og:url" content="https://academic.joechamdani.com/projects/INFO_300/" />
         <meta property="og:title" content="INFO 300: Human Judgment vs. AI Alerts - Research Proposal" />
         <meta property="og:description" content="Research proposal investigating how users interpret and trust scam detection alerts from automated systems versus humans. Examines accuracy, reliability, and decision-making behavior." />
-        <meta property="og:image" content="https://uw.joechamdani.com/projects/Human_vs_AI.png" />
+        <meta property="og:image" content="https://academic.joechamdani.com/projects/Human_vs_AI.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://uw.joechamdani.com/projects/INFO_300/" />
+        <meta name="twitter:url" content="https://academic.joechamdani.com/projects/INFO_300/" />
         <meta name="twitter:title" content="INFO 300: Human Judgment vs. AI Alerts - Research Proposal" />
         <meta name="twitter:description" content="Research proposal investigating how users interpret and trust scam detection alerts from automated systems versus humans. Examines accuracy, reliability, and decision-making behavior." />
-        <meta name="twitter:image" content="https://uw.joechamdani.com/projects/Human_vs_AI.png" />
+        <meta name="twitter:image" content="https://academic.joechamdani.com/projects/Human_vs_AI.png" />
 
-        <link rel="canonical" href="https://uw.joechamdani.com/projects/INFO_300/" />
+        <link rel="canonical" href="https://academic.joechamdani.com/projects/INFO_300/" />
       </Helmet>
 
       <div className="min-h-screen bg-paper dark:bg-[#141B2D] flex items-center justify-center px-6 py-20 transition-colors duration-200">
