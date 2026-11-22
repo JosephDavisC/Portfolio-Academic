@@ -20,6 +20,11 @@
     RewriteEngine On
     RewriteBase /
 
+    # The site moved from uw.joechamdani.com to academic.joechamdani.com (Nov 2026).
+    # Keep this forever: old links on LinkedIn, resumes and ORCID land on the same path.
+    RewriteCond %{HTTP_HOST} ^uw\.joechamdani\.com$ [NC]
+    RewriteRule ^(.*)$ https://academic.joechamdani.com/$1 [R=301,L]
+
     # Custom 404 page. Served with a REAL 404 status, unlike /index.html which
     # would return 200 and hand crawlers the whole homepage at a bogus URL.
     ErrorDocument 404 /404.html

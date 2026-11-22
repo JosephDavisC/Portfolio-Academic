@@ -6,6 +6,12 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 Nothing yet.
 
+## [3.3.0] - 2026-11-22
+
+### Changed
+- The site moves to academic.joechamdani.com, so the address still fits after UW. Every uw.joechamdani.com URL redirects (301) to the same path on the new address, so old links keep working
+- Canonical, share preview, structured data, sitemap, robots.txt, llms.txt and the README point at the new address
+
 ## [3.2.0] - 2026-11-22
 
 ### Changed

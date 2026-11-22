@@ -1,10 +1,10 @@
-<a href="https://uw.joechamdani.com" target="_blank">
+<a href="https://academic.joechamdani.com" target="_blank">
   <img src="public/Joseph-Academic-Logo.png" alt="Joseph Davis Chamdani academic logo" width="120" align="left"/>
 </a>
 
 # Joseph Davis Chamdani · Academic Portfolio
 
-[![Website](https://img.shields.io/badge/Website-uw.joechamdani.com-6f42c1?style=for-the-badge&logo=vercel&logoColor=white)](https://uw.joechamdani.com)
+[![Website](https://img.shields.io/badge/Website-academic.joechamdani.com-6f42c1?style=for-the-badge&logo=vercel&logoColor=white)](https://academic.joechamdani.com)
 [![Updated](https://img.shields.io/badge/Updated-Oct_2026-4CBB17?style=for-the-badge)](https://github.com/JosephDavisC/Portfolio-Academic/pull/1)
 
 ---
@@ -15,9 +15,9 @@ This is the academic portfolio of **Joseph Davis Chamdani**, an **Informatics se
 
 Professional experience, client work and writing live on his personal site, [joechamdani.com](https://joechamdani.com).
 
-Live site: **[uw.joechamdani.com](https://uw.joechamdani.com)**
+Live site: **[academic.joechamdani.com](https://academic.joechamdani.com)**
 
-<a href="https://uw.joechamdani.com">
+<a href="https://academic.joechamdani.com">
   <img src=".github/readme/reel.avif" alt="Scrolling through the hero, About, Research and Recognition and Coursework sections in light mode, switching to dark mode with a circle reveal from the toggle, and scrolling back up">
 </a>
 

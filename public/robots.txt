@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://uw.joechamdani.com/sitemap.xml
+Sitemap: https://academic.joechamdani.com/sitemap.xml
