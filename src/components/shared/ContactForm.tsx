@@ -70,7 +70,7 @@ const ContactForm = () => {
 
   return (
     <motion.div
-      className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-6 sm:p-10 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-blue-500/10 hover:border-court dark:hover:border-blue-400/30 transition-all duration-500 relative overflow-hidden group/form"
+      className="bg-paper dark:bg-[#1A2236] rounded-xl p-6 sm:p-10 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg hover:border-court dark:hover:border-blue-400/30 transition-all duration-500 relative overflow-hidden group/form"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
@@ -107,7 +107,7 @@ const ContactForm = () => {
             type="text"
             placeholder="Your name"
             {...register('name')}
-            className={`bg-paper dark:bg-white/5 border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 rounded-lg ${
+            className={`bg-paper dark:bg-[#1A2236] border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 rounded-lg ${
               errors.name ? 'border-red-500 dark:border-red-400' : ''
             }`}
           />
@@ -128,7 +128,7 @@ const ContactForm = () => {
             type="email"
             placeholder="your.email@example.com"
             {...register('email')}
-            className={`bg-paper dark:bg-white/5 border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 rounded-lg ${
+            className={`bg-paper dark:bg-[#1A2236] border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 rounded-lg ${
               errors.email ? 'border-red-500 dark:border-red-400' : ''
             }`}
           />
@@ -149,7 +149,7 @@ const ContactForm = () => {
             type="text"
             placeholder="What's this about?"
             {...register('subject')}
-            className={`bg-paper dark:bg-white/5 border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 rounded-lg ${
+            className={`bg-paper dark:bg-[#1A2236] border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 rounded-lg ${
               errors.subject ? 'border-red-500 dark:border-red-400' : ''
             }`}
           />
@@ -170,7 +170,7 @@ const ContactForm = () => {
             placeholder="Tell me about your project, collaboration idea, or just say hi!"
             rows={6}
             {...register('message')}
-            className={`bg-paper dark:bg-white/5 border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 resize-none rounded-lg ${
+            className={`bg-paper dark:bg-[#1A2236] border-2 border-espresso/50 dark:border-white/10 text-espresso dark:text-white placeholder:text-espresso/40 dark:placeholder:text-slate-500 focus:border-court dark:focus:border-blue-400 focus:shadow-brutal-sm dark:focus:shadow-lg dark:focus:shadow-blue-500/20 transition-all duration-300 resize-none rounded-lg ${
               errors.message ? 'border-red-500 dark:border-red-400' : ''
             }`}
           />

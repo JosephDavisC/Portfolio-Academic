@@ -26,17 +26,11 @@ export default function ScrollUpButton() {
         aria-label="Back to top"
         className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full
                    text-espresso border-2 border-espresso bg-paper shadow-brutal
-                   dark:text-white/90 dark:border-white/15 dark:backdrop-blur-md
-                   dark:bg-[#0b1220]/50 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+                   dark:text-white/90 dark:border-white/15
+                   dark:bg-[#1A2236] dark:shadow-none
                    transition hover:bg-paper-dark dark:hover:bg-white/10 focus:outline-none
                    focus-visible:ring-2 focus-visible:ring-court/60 dark:focus-visible:ring-[#60A5FA]/60"
       >
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -inset-px rounded-full hidden dark:block
-                     bg-[#60A5FA]/40
-                     opacity-40 blur-[6px] transition group-hover:opacity-70"
-        />
         <ArrowUp className="relative h-5 w-5 drop-shadow-sm" strokeWidth={3.2} />
         <span className="sr-only">Scroll to top</span>
       </button>

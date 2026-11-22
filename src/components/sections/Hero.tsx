@@ -40,23 +40,11 @@ const ScribbleUnderline = () => (
  * hero before React mounts, so animating in from opacity 0 would make the same
  * content blink out and fade back. Scroll animations elsewhere are unaffected.
  */
-const facts = [
-  { label: "GPA", value: "3.96" },
-  { label: "Honors", value: "Dean's List, every quarter" },
-  { label: "Research", value: "3 reports" },
-];
-
 const Hero = () => {
   const [isHoveringProfile, setIsHoveringProfile] = useState(false);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-28 pb-20 relative bg-paper dark:bg-[#141B2D]">
-      {/* Subtle mesh gradient background */}
-      <div className="absolute inset-0 opacity-30 dark:opacity-20 pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-court/20 dark:bg-[#60A5FA]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 dark:bg-violet-500/10 rounded-full blur-3xl" />
-      </div>
-
       <div className="max-w-7xl w-full mx-auto relative z-10">
         <div className="grid lg:grid-cols-[1.25fr_1fr] gap-14 lg:gap-16 items-center">
           {/* Left */}
@@ -88,16 +76,8 @@ const Hero = () => {
 
             <p className="mt-4 text-lg leading-relaxed text-espresso/70 dark:text-slate-400 max-w-xl">
               I study how people trust AI systems, and build tools that make AI safer and institutions easier to navigate.
+              {" "}3.96 GPA, on the Dean's List every quarter.
             </p>
-
-            <dl className="mt-7 grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 sm:flex sm:gap-0 sm:divide-x-2 divide-espresso/15 dark:divide-white/10 font-mono text-sm">
-              {facts.map((f, i) => (
-                <div key={f.label} className={`contents sm:block ${i === 0 ? "sm:pr-6" : "sm:px-6"}`}>
-                  <dt className="text-espresso/70 dark:text-slate-400">{f.label}</dt>
-                  <dd className="text-lg md:text-xl font-semibold text-espresso dark:text-slate-100">{f.value}</dd>
-                </div>
-              ))}
-            </dl>
 
             <div className="mt-9 flex flex-col sm:flex-row gap-4">
               <a
@@ -139,7 +119,7 @@ const Hero = () => {
               onMouseEnter={() => setIsHoveringProfile(true)}
               onMouseLeave={() => setIsHoveringProfile(false)}
             >
-              <div className="relative w-72 h-[22rem] md:w-[23rem] md:h-[28.5rem] rounded-2xl overflow-hidden border-4 border-espresso dark:border-white/15 shadow-brutal-lg dark:shadow-none">
+              <div className="relative w-72 h-[22rem] md:w-[22rem] md:h-[27rem] rounded-xl overflow-hidden border-2 border-espresso dark:border-white/15 shadow-brutal dark:shadow-none">
                 <img
                   src="/Joseph_Chamdani.jpg"
                   alt="Joseph Davis Chamdani"
@@ -175,13 +155,10 @@ const Hero = () => {
               </div>
 
               {/* Degree caption */}
-              <div className="absolute -bottom-6 -left-6 md:-left-10 flex items-center gap-3 rounded-xl border-2 border-espresso dark:border-white/15 bg-paper dark:bg-[#1b2438] px-4 py-3 shadow-brutal-sm dark:shadow-none">
-                <img src="/logos/UW_Logo.png" alt="" className="h-9 w-9 rounded-full bg-white p-1" />
-                <div className="leading-tight">
-                  <p className="text-sm font-semibold text-espresso dark:text-slate-100">BS Informatics</p>
-                  <p className="font-mono text-xs text-espresso/70 dark:text-slate-400">Seattle, WA · 2025 to 2027</p>
-                </div>
-              </div>
+              <p className="mt-3 flex items-center gap-2 font-mono text-xs text-espresso/70 dark:text-slate-400">
+                <img src="/logos/UW_Logo.png" alt="" className="h-5 w-5 rounded-full bg-white p-0.5" />
+                BS Informatics · Seattle, WA · 2025 to 2027
+              </p>
             </div>
           </motion.div>
         </div>

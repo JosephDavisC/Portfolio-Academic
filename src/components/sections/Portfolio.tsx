@@ -1,7 +1,8 @@
 import { track } from "@/lib/track";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import SectionHeading from '@/components/shared/SectionHeading';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -16,7 +17,8 @@ const staggerContainer = {
 const projects = [
   {
     title: "INFO 200: Transfer Evaluation System",
-    image: "/projects/UW_Transfer_Evaluation_Tool.jpg",
+    image: "/projects/shots/info200.jpg",
+    webp: "/projects/shots/info200.webp",
     imageAlt: "INFO 200 Design Project",
     tech: ["UX Design", "AI", "Education", "Prototyping"],
     description:
@@ -28,7 +30,9 @@ const projects = [
   },
   {
     title: "INFO 201: AI Job Market & LLM Growth",
-    image: "/projects/AI _Job_Market_&_LLM_Growth.png",
+    image: "/projects/shots/info201.jpg",
+    webp: "/projects/shots/info201.webp",
+    fit: "contain",
     imageAlt: "INFO 201 Data Analysis Project",
     tech: ["R", "Data Science", "Kaggle", "Visualization"],
     description:
@@ -40,7 +44,8 @@ const projects = [
   },
   {
     title: "INFO 300: Human Judgment vs. AI Alerts",
-    image: "/projects/Human_vs_AI.png",
+    image: "/projects/INFO_300/proposal-preview.png",
+    webp: "/projects/INFO_300/proposal-preview.webp",
     imageAlt: "INFO 300 Research Proposal",
     tech: ["Research", "Ethics", "AI Trust", "Writing"],
     description:
@@ -52,7 +57,8 @@ const projects = [
   },
   {
     title: "INFO 340: Planathon",
-    image: "/projects/INFO_340_Logo.png",
+    image: "/projects/shots/info340.jpg",
+    webp: "/projects/shots/info340.webp",
     imageAlt: "INFO 340 Client-Side Development Project",
     tech: ["React", "Firebase", "Bootstrap", "Vite"],
     description:
@@ -60,12 +66,12 @@ const projects = [
     status: undefined,
     github: "https://github.com/JosephDavisC/INFO_340",
     demo: "https://planathon.web.app/",
-    demoLabel: "Demo",
-    imageBg: "#FFFFFF"
+    demoLabel: "Demo"
   },
   {
     title: "INFO 360: UW Nap Spot Finder",
-    image: "/projects/INFO_360_Logo.png",
+    image: "/projects/shots/info360.jpg",
+    webp: "/projects/shots/info360.webp",
     imageAlt: "INFO 360 Design Methods Project",
     tech: ["React", "TypeScript", "UX Design", "Prototyping"],
     description:
@@ -77,7 +83,8 @@ const projects = [
   },
   {
     title: "INFO 380: Course Registration System",
-    image: "/projects/INFO_380_Logo.png",
+    image: "/projects/shots/info380.jpg",
+    webp: "/projects/shots/info380.webp",
     imageAlt: "INFO 380 Systems Management Project",
     tech: ["React", "TypeScript", "Systems Analysis", "Prototyping"],
     description:
@@ -85,7 +92,6 @@ const projects = [
     status: undefined,
     github: "https://github.com/JosephDavisC/INFO_380",
     demo: "https://info380.joechamdani.com",
-    imageBg: "#FFFFFF",
     demoLabel: "Prototype"
   },
   {
@@ -114,107 +120,76 @@ const projects = [
   }
 ];
 
+type Project = (typeof projects)[number] & { webp?: string; fit?: string };
+
 const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-espresso dark:text-slate-100">
-            Academic Projects
-          </h2>
-          <p className="text-espresso/60 dark:text-slate-300 text-lg md:text-xl max-w-[65ch] mx-auto leading-relaxed">
-            Course projects and research work combining AI, data analytics, and software engineering
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="Academic Projects"
+          intro="Course projects and research work combining AI, data analytics, and software engineering"
+        />
 
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
-          {projects.map((project, index) => (
-            <motion.article
-              key={index}
-              variants={fadeInUp}
-              className="bg-paper dark:bg-white/5 dark:backdrop-blur-sm rounded-xl p-5 border-2 border-espresso dark:border-white/10 shadow-brutal dark:shadow-none hover:shadow-brutal-lg dark:hover:shadow-lg dark:hover:shadow-blue-500/20 hover:border-court dark:hover:border-blue-400/50 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
-            >
-              <figure className="relative overflow-hidden rounded-lg border-2 border-espresso/50 dark:border-white/10 group-hover:border-court dark:group-hover:border-blue-400/30 h-48 md:h-56 flex items-center justify-center" style={{ backgroundColor: project.imageBg || '#4C3182' }}>
-                <img
-                  src={project.image}
-                  alt={project.imageAlt || project.title}
-                  className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-500/40 via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </figure>
+          {(projects as Project[]).map((project) => {
+            const [code, name] = project.title.split(": ");
+            return (
+              <motion.article key={project.title} variants={fadeInUp} className="card-brutal card-static group flex flex-col !p-0 overflow-hidden">
+                <figure className="relative aspect-[16/10] overflow-hidden border-b-2 border-espresso dark:border-white/10 bg-white">
+                  <picture>
+                    {project.webp && <source srcSet={project.webp} type="image/webp" />}
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt || project.title}
+                      className={`w-full h-full ${project.fit === "contain" ? "object-contain p-3" : "object-cover object-top"} transition-transform duration-500 ease-out group-hover:scale-[1.03]`}
+                      loading="lazy"
+                    />
+                  </picture>
+                </figure>
 
-              <h3 className="mt-4 text-xl font-semibold group-hover:text-court-dark dark:group-hover:text-[#60A5FA] transition-colors">
-                {project.title}
-              </h3>
+                <div className="flex flex-col flex-grow p-5">
+                  <p className="font-mono text-xs font-semibold text-court-dark dark:text-[#60A5FA]">{code}</p>
+                  <h3 className="mt-1 text-xl font-heading font-bold leading-snug text-espresso dark:text-slate-100">{name ?? code}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-espresso/75 dark:text-slate-400 flex-grow">{project.description}</p>
+                  <p className="mt-4 font-mono text-xs text-espresso/70 dark:text-slate-400">{project.tech.join(" · ")}</p>
 
-              <div className="mt-2.5 flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 py-0.5 bg-court/20 dark:bg-[#60A5FA]/20 text-court-dark dark:text-[#60A5FA] border border-court/50 dark:border-[#60A5FA]/30 rounded text-xs font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <p className="text-espresso/60 dark:text-slate-400 mt-4 mb-3 leading-relaxed text-base flex-grow">
-                {project.description}
-              </p>
-
-              {/* Status Badge */}
-              {project.status && (
-                <div className="mb-4">
-                  <span className="inline-flex items-center px-3 py-1 bg-yellow-500/10 border border-yellow-500/30 text-yellow-300 rounded-full text-sm">
-                    {project.status}
-                  </span>
-                </div>
-              )}
-
-              {/* Links */}
-              {(project.github || project.demo) && (
-                <div className="flex gap-3 mt-auto">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      onClick={() => track("project-link", { project: project.title, kind: "code" })}
-                      className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github className="h-4 w-4" />
-                      Code
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      onClick={() => track("project-link", { project: project.title, kind: "demo" })}
-                      className="btn-brutal inline-flex items-center gap-2 px-4 py-2 text-sm"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      {project.demoLabel || "More"}
-                    </a>
+                  {(project.github || project.demo) && (
+                    <div className="mt-4 pt-4 border-t-2 border-espresso/10 dark:border-white/10 flex gap-5">
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          onClick={() => track("project-link", { project: project.title, kind: "demo" })}
+                          className="link-underline inline-flex items-center gap-1 text-sm font-semibold text-espresso dark:text-slate-100"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {project.demoLabel || "More"} <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          onClick={() => track("project-link", { project: project.title, kind: "code" })}
+                          className="link-underline inline-flex items-center gap-1 text-sm font-semibold text-espresso/75 dark:text-slate-300"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Code <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      )}
+                    </div>
                   )}
                 </div>
-              )}
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </motion.div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import SectionHeading from "@/components/shared/SectionHeading";
 import { motion } from "framer-motion";
 import { ChevronDown, Github } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -331,10 +332,10 @@ const bcAllCourses = [
 // Department colour for the course code badge. Light values are all 4.5:1 or better
 // on their tint; dark mode uses the lighter shade of the same hue.
 const DEPT_STYLE: Record<string, string> = {
-  INFO: "text-[#4B2E83] bg-[#4B2E83]/10 border-[#4B2E83]/30 dark:text-purple-300 dark:bg-purple-400/10 dark:border-purple-400/30",
-  CSE: "text-court-dark bg-court/15 border-court-dark/30 dark:text-emerald-300 dark:bg-emerald-400/10 dark:border-emerald-400/30",
-  ARCH: "text-[#8A4B12] bg-[#C2410C]/10 border-[#C2410C]/30 dark:text-orange-300 dark:bg-orange-400/10 dark:border-orange-400/30",
-  BC: "text-[#006d96] bg-[#00AEEF]/10 border-[#00AEEF]/30 dark:text-sky-300 dark:bg-sky-400/10 dark:border-sky-400/30",
+  INFO: "text-[#4B2E83] dark:text-purple-300",
+  CSE: "text-court-dark dark:text-emerald-300",
+  ARCH: "text-[#8A4B12] dark:text-orange-300",
+  BC: "text-[#006d96] dark:text-sky-300",
 };
 const deptOf = (code: string, school: "uw" | "bc") =>
   school === "bc" ? "BC" : (code.split(" ")[0] in DEPT_STYLE ? code.split(" ")[0] : "INFO");
@@ -342,7 +343,7 @@ const deptOf = (code: string, school: "uw" | "bc") =>
 function CodeBadge({ code, school }: { code: string; school: "uw" | "bc" }) {
   return (
     <span
-      className={`inline-flex items-center justify-center shrink-0 w-[6.5rem] px-2 py-1 rounded-md border font-mono text-xs font-bold tracking-tight ${DEPT_STYLE[deptOf(code, school)]}`}
+      className={`inline-block shrink-0 w-[6.5rem] font-mono text-sm font-bold tracking-tight ${DEPT_STYLE[deptOf(code, school)]}`}
     >
       {code}
     </span>
@@ -399,16 +400,16 @@ function QuarterBlock({ quarter, school }: { quarter: Quarter; school: "uw" | "b
       className="grid md:grid-cols-[11rem_1fr] gap-3 md:gap-8"
     >
       <div className="md:sticky md:top-28 self-start">
-        <p className="font-heading text-xl font-bold text-espresso dark:text-slate-100">{quarter.label}</p>
-        <div className="mt-2 flex flex-wrap md:flex-col items-start gap-2">
+        <p className="font-heading text-2xl font-bold text-espresso dark:text-slate-100">{quarter.label}</p>
+        <div className="mt-1.5 flex flex-wrap md:flex-col items-start gap-x-3 gap-y-1">
           {quarter.inProgress && (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-court-dark/40 bg-court/15 px-2.5 py-0.5 font-mono text-xs font-semibold text-court-dark dark:border-[#60A5FA]/40 dark:bg-[#60A5FA]/10 dark:text-[#93C5FD]">
-              <span className="h-1.5 w-1.5 rounded-full bg-court-dark dark:bg-[#60A5FA] motion-safe:animate-pulse" />
+            <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-court-dark dark:text-[#93C5FD]">
+              <span className="h-1.5 w-1.5 rounded-full bg-court-dark dark:bg-[#60A5FA]" />
               In progress
             </span>
           )}
           {quarter.note && (
-            <span className="rounded-full border border-[#4B2E83]/30 bg-[#4B2E83]/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-[#4B2E83] dark:border-purple-400/30 dark:bg-purple-400/10 dark:text-purple-300">
+            <span className="font-mono text-xs font-semibold text-[#4B2E83] dark:text-purple-300">
               {quarter.note}
             </span>
           )}
@@ -442,54 +443,31 @@ export default function Coursework() {
   const uwCourseCount = uwQuarters.reduce((n, q) => n + q.courses.length, 0);
   const completedQuarters = uwQuarters.filter((q) => !q.inProgress).length;
   const deansList = uwQuarters.filter((q) => q.note?.startsWith("Dean's List")).length;
-  const stats = [
-    { value: String(uwCourseCount), label: "UW courses" },
-    { value: String(completedQuarters), label: "quarters completed" },
-    { value: `${deansList} of ${completedQuarters}`, label: "on the Dean's List" },
-    { value: "90", label: "credits from Bellevue College" },
-  ];
 
   return (
     <section id="coursework" className="py-20 md:py-24 px-6 bg-paper-dark/50 dark:bg-black/20">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-espresso dark:text-slate-100">Coursework</h2>
-          <p className="text-espresso/70 dark:text-slate-300 text-lg md:text-xl max-w-[65ch] mx-auto leading-relaxed">
-            My academic record at UW Informatics and Bellevue College, quarter by quarter
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="Coursework"
+          intro="My academic record at UW Informatics and Bellevue College, quarter by quarter"
+        />
 
-        {/* Summary strip */}
-        <dl className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10">
-          {stats.map((s) => (
-            <div key={s.label} className="card-brutal !p-4 md:!p-5 text-center">
-              <dt className="sr-only">{s.label}</dt>
-              <dd>
-                <span className="block font-heading text-3xl md:text-4xl font-bold text-espresso dark:text-slate-100">{s.value}</span>
-                <span className="mt-1 block font-mono text-xs text-espresso/70 dark:text-slate-400">{s.label}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <p className="mb-8 max-w-3xl text-lg leading-relaxed text-espresso/80 dark:text-slate-300">
+          {uwCourseCount} UW courses over {completedQuarters} completed quarters, on the Dean's List in {deansList} of {completedQuarters}, plus 90 credits transferred from Bellevue College.
+        </p>
 
         {/* Area filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12" role="group" aria-label="Filter courses by area">
+        <div className="flex flex-wrap gap-x-6 gap-y-2 mb-12 border-b-2 border-espresso/10 dark:border-white/10" role="group" aria-label="Filter courses by area">
           {AREAS.map((a) => (
             <button
               key={a}
               type="button"
               onClick={() => setArea(a)}
               aria-pressed={area === a}
-              className={`px-4 py-1.5 rounded-full border-2 font-mono text-sm font-medium transition-all duration-200 ${
+              className={`-mb-[2px] pb-2.5 border-b-2 text-sm font-semibold transition-colors duration-200 ${
                 area === a
-                  ? "bg-court text-espresso border-espresso shadow-brutal-sm dark:bg-[#60A5FA]/15 dark:text-[#93C5FD] dark:border-[#60A5FA]/40 dark:shadow-none"
-                  : "bg-paper text-espresso border-espresso/20 hover:border-espresso/50 hover:-translate-y-0.5 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600 dark:hover:border-slate-400"
+                  ? "border-court-dark text-espresso dark:border-[#60A5FA] dark:text-slate-100"
+                  : "border-transparent text-espresso/60 hover:text-espresso dark:text-slate-400 dark:hover:text-slate-100"
               }`}
             >
               {a}

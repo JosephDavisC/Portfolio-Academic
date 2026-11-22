@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import SectionHeading from "@/components/shared/SectionHeading";
 
 // Facts here come from the MSIM resume and its honors file (School/.../Masters/Application).
 // Sector's reports are industry research, not peer reviewed; keep them labelled that way.
+
+const UW_PROFILE = "https://mge.scholarships.uw.edu/students/joseph-chamdani/";
 
 interface Entry {
   year: string;
@@ -40,8 +43,13 @@ const writing: Entry[] = [
 
 const honors: Entry[] = [
   { year: "2026", title: "Annual Dean's List, 2025 to 2026", meta: "University of Washington · Dean's List every quarter" },
-  { year: "2026", title: "Alan R. Spence Transfer Support Fund", meta: "UW merit scholarship" },
-  { year: "2025", title: "1st place, Anthropic Claude Hackathon", meta: "Claude Builder Club at UW · AI Transfer Evaluation Tool" },
+  { year: "2026", title: "Alan R. Spence Transfer Support Fund", meta: "UW merit scholarship · Scholar profile", href: UW_PROFILE },
+  {
+    year: "2025",
+    title: "1st place, Anthropic Claude Hackathon",
+    meta: "Claude Builder Club at UW · AI Transfer Evaluation Tool",
+    href: "https://joechamdani.com/projects/transfer-tool",
+  },
   { year: "2025", title: "Associate in Arts, With High Honors", meta: "Bellevue College · GPA 3.84" },
   { year: "2024", title: "Norman and Camille Stromer Scholarship", meta: "Bellevue College Foundation, 2024 to 2025" },
 ];
@@ -129,7 +137,7 @@ function Block({ title, kicker, entries, className = "", twoCol = false }: { tit
       className={`card-brutal card-static !p-0 overflow-hidden self-start ${className}`}
     >
       <div className="px-5 pt-5 pb-3 border-b-2 border-espresso/10 dark:border-white/10">
-        <h3 className="text-xl font-bold text-espresso dark:text-slate-100">{title}</h3>
+        <h3 className="text-xl font-heading font-bold text-espresso dark:text-slate-100">{title}</h3>
         <p className="mt-1 font-mono text-xs text-espresso/70 dark:text-slate-400">{kicker}</p>
       </div>
       <EntryList entries={entries} twoCol={twoCol} />
@@ -137,26 +145,56 @@ function Block({ title, kicker, entries, className = "", twoCol = false }: { tit
   );
 }
 
+function ScholarCard() {
+  return (
+    <motion.a
+      href={UW_PROFILE}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-60px" }}
+      aria-label="Read Joseph's scholar profile on the University of Washington OMSFA site"
+      className="lg:col-span-2 card-brutal card-static group !p-0 overflow-hidden flex items-stretch bg-[#4B2E83]/[0.04] dark:bg-[#8B6FD1]/[0.08]"
+    >
+      <div className="w-24 sm:w-32 lg:w-40 shrink-0 border-r-4 border-[#B7A57A] bg-[#B7A57A]">
+        <picture>
+          <source srcSet="/images/uw-scholar-photo.webp" type="image/webp" />
+          <img
+            src="/images/uw-scholar-photo.jpg"
+            alt="Joseph Chamdani, UW scholar profile photo"
+            loading="lazy"
+            width={400}
+            height={533}
+            className="h-full w-full object-cover object-[center_30%]"
+          />
+        </picture>
+      </div>
+      <div className="min-w-0 flex-1 px-5 py-4 lg:px-8 lg:py-6 flex flex-col justify-center">
+        <p className="font-mono text-[11px] lg:text-xs font-semibold uppercase tracking-widest text-[#4B2E83] dark:text-[#B9A3E3]">UW scholar profile<span className="hidden sm:inline text-espresso/60 dark:text-slate-400"> · Alan R. Spence Transfer Support Fund</span></p>
+        <div className="mt-2 h-1 w-16 bg-[#B7A57A] -skew-x-12" aria-hidden />
+        <blockquote className="mt-3 text-[15px] lg:text-xl font-semibold leading-snug text-espresso dark:text-slate-100">
+          “I try to treat school less as a checklist to finish and more as a set of tools to build with.”
+        </blockquote>
+        <span className="mt-3 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#4B2E83] dark:text-[#B9A3E3] group-hover:underline underline-offset-4">
+          Read it on uw.edu <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+        </span>
+      </div>
+    </motion.a>
+  );
+}
+
 export default function Recognition() {
   return (
     <section id="research" className="py-20 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-espresso dark:text-slate-100">Research &amp; Recognition</h2>
-          <p className="text-espresso/70 dark:text-slate-300 text-lg md:text-xl max-w-[65ch] mx-auto leading-relaxed">
-            Writing, honors, and the teaching and service around my studies
-          </p>
-        </motion.div>
+        <SectionHeading title="Research & Recognition" intro="Writing, honors, and the teaching and service around my studies" />
 
         <div className="grid lg:grid-cols-[1.25fr_1fr] gap-6">
-          <Block title="Research and writing" kicker="Reports and proposals, newest first" entries={writing} />
-          <Block title="Honors and awards" kicker="Academic honors and scholarships" entries={honors} />
+          <Block title="Research and writing" kicker="Reports and proposals, newest first" entries={writing} className="lg:!self-stretch" />
+          <Block title="Honors and awards" kicker="Academic honors and scholarships" entries={honors} className="lg:!self-stretch" />
+          <ScholarCard />
           <Block title="Teaching and service" kicker="Leading, mentoring, and teaching others" entries={service} className="lg:col-span-2" twoCol />
         </div>
       </div>

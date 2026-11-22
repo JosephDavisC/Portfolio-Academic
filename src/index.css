@@ -83,16 +83,15 @@ html.no-transitions *::after {
 
   /* Card - Dark Mode (Glassmorphism) */
   .dark .card-brutal {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: #1A2236;
+    border-color: rgba(255, 255, 255, 0.09);
     box-shadow: none;
   }
 
   .dark .card-brutal:hover {
-    border-color: rgba(96, 165, 250, 0.5);
-    box-shadow: 0 0 24px rgba(96, 165, 250, 0.15);
-    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    transform: translateY(-2px);
   }
 
   /* Court Green Card Variant */
@@ -134,8 +133,8 @@ html.no-transitions *::after {
 
   .dark .btn-brutal:hover {
     background: #93C5FD;
-    box-shadow: 0 0 16px rgba(96, 165, 250, 0.35);
-    transform: translateY(-2px);
+    box-shadow: none;
+    transform: translateY(-1px);
   }
 
   /* Outline Button */
@@ -158,9 +157,9 @@ html.no-transitions *::after {
   }
 
   .dark .btn-brutal-outline:hover {
-    @apply bg-slate-800 text-white border-neon-blue;
-    box-shadow: 0 0 12px rgba(96, 165, 250, 0.3);
-    transform: translateY(-2px);
+    @apply bg-slate-800 text-white border-slate-400;
+    box-shadow: none;
+    transform: translateY(-1px);
   }
 
   /* Scribble Underline */
