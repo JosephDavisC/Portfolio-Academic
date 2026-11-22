@@ -11,6 +11,7 @@ Nothing yet.
 ### Changed
 - The site moves to academic.joechamdani.com, so the address still fits after UW. Every uw.joechamdani.com URL redirects (301) to the same path on the new address, so old links keep working
 - Canonical, share preview, structured data, sitemap, robots.txt, llms.txt and the README point at the new address
+- New 1200 x 630 share card (photo, name, UW, GPA) replaces the square logo in link previews; the title leads with the name
 
 ## [3.2.0] - 2026-11-22
 
