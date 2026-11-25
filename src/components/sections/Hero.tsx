@@ -121,7 +121,7 @@ const Hero = () => {
             >
               <div className="relative w-72 h-[22rem] md:w-[22rem] md:h-[27rem] rounded-xl overflow-hidden border-2 border-espresso dark:border-white/15 shadow-brutal dark:shadow-none">
                 <img
-                  src="/Joseph_Chamdani.jpg"
+                  src="/joseph-profile.jpg"
                   alt="Joseph Davis Chamdani"
                   className="h-full w-full object-cover object-top"
                   fetchPriority="high"

@@ -6,6 +6,12 @@ All notable changes to uw.joechamdani.com, newest first. Dates are commit or mer
 
 Nothing yet.
 
+## [3.3.1] - 2026-11-24
+
+### Changed
+- New hero photo, a sharper and more recent portrait
+- The share card and the structured data image use the new photo too
+
 ## [3.3.0] - 2026-11-22
 
 ### Changed
